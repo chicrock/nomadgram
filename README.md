@@ -4,28 +4,28 @@ Cloning instagram with python django and react / react native
 
 - django
 - make virtual environment with pipenv
-pip install pipenv
+- pip install pipenv
 
 - --three means make python version 3 environment
 - generate Pipfile in this folder. share this file for sharing there developement environment
-pipenv --three
+- pipenv --three
 
 - install django in pipenv
-pipenv install django
+- pipenv install django
 
 - cookiecutter for big products
-pipenv install cookiecutter
+- pipenv install cookiecutter
 
 - go into the virtual environment buble
-pipenv shell
+- pipenv shell
 
 - run cookiecutter
-cookiecutter https://github.com/pydanny/cookiecutter-django
+- cookiecutter https://github.com/pydanny/cookiecutter-django
 
 - git
-git init
-git remote add origin {YOUR_GIHTUB_URL}
-git pull origin master
-git add .
-git commit -m "First commmit"
-git push origin master
+- git init
+- git remote add origin {YOUR_GIHTUB_URL}
+- git pull origin master
+- git add .
+- git commit -m "First commmit"
+- git push origin master
