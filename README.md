@@ -10,12 +10,9 @@ Cloning instagram with python django and react / react native
 > <code>]$ git commit -m 'Cleanup'</code><br>
 > <code>]$ git push origin master</code>
 
-## postgresql
+## postgresql (pgadmin or postgresapp)
 > Download from https://postgresapp.com/ on mac<br>
-> <code>]$ sudo dnf install postgres*</code><br>
-> <code>]$ sudo systemctl enable postgresql.service</code><br>
-> <code>]$ sudo /usr/bin/postgresql-setup --initdb</code>
-> <code>]$ sudo systemctl restart postgresql.service</code>
+> Download from https://www.pgadmin.org/download/ on linux or windows
 
 ## django
 > make virtual environment with pipenv<br>
