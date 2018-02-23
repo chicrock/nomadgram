@@ -34,3 +34,36 @@ Cloning instagram with python django and react / react native
 > run cookiecutter<br>
 > <code>]$ cookiecutter https://github.com/pydanny/cookiecutter-django</code>
 
+> install requirements to set project <br>
+> <code>]$ pipenv install -r requirements/local.txt</code>
+
+> setup database config on /config/settings/base.py (DATABASE CONFIGURATION)<br>
+
+> create images app<br>
+> <code>cd nomadgram</code><br>
+> <code>django-admin startapp images</code><br>
+> Change name variables in ImagesConfig class on apps.py to 'nomadgram.images'<br>
+> Add 'nomadgram.images.apps.ImagesConfig' to LOCAL_APPS configuration on base.py<br>
+> Add urls.py file in images app folder
+
+## django orm
+> inherit from models class in django.db<br>
+> define class like beyond code<br>
+> <code>class Cat(models.Model):</code>
+
+> lookup can using in filter like this <code>.objects.filter(name__startswith="Mr")</code><br>
+> lookup options<br>
+>> startswith<br>
+>> contains<br>
+>> istartswith<br>
+>> icontains<br>
+>> lt<br>
+>> gt
+
+> do migration<br>
+> <code>python manage.py makemigrations</code><br>
+> <code>python manage.py migrate</code>
+
+## postgreSQL
+> make database<br>
+> <code>CREATE DATABASE nomadgram;</code>
