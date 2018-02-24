@@ -2,35 +2,65 @@
 
 Cloning instagram with python django and react / react native
 
+## dev options on vsc
+
+> add This options in workspace settings in visual studio code for autocomplete
+
+> <code>"python.pythonPath": "/Users/chicrock/.local/share/virtualenvs/nomadgram-V4YGkj-9/bin/python",</code>
+
 ## git
 
-> <code>]$ git init </code><br> > <code>]$ git remote add origin {GITHUB_URL}</code><br> > <code>]$ git pull origin master</code><br> > <code>]$ git add .</code><br> > <code>]$ git commit -m 'Cleanup'</code><br> > <code>]$ git push origin master</code>
+> <code>]$ git init </code>
 
-## postgresql (pgadmin or postgresapp)
+> <code>]$ git remote add origin {GITHUB_URL}</code>
 
-> Download from https://postgresapp.com/ on mac<br>
-> Download from https://www.pgadmin.org/download/ on linux or windows
+> <code>]$ git pull origin master</code>
+
+> <code>]$ git add .</code>
+
+> <code>]$ git commit -m 'Cleanup'</code>
+
+> <code>]$ git push origin master</code>
 
 ## django
 
-> make virtual environment with pipenv<br> > <code>]$ pip install pipenv</code>
+> make virtual environment with pipenv
+
+> <code>]$ pip install pipenv</code>
 
 > --three means make python version 3 environment<br>
-> generate Pipfile in this folder. share this file for sharing there developement environment<br> > <code>]$ pipenv --three</code>
+> generate Pipfile in this folder. share this file for sharing there developement environment
 
-> install django in pipenv<br> > <code>]$ pipenv install django</code>
+> <code>]$ pipenv --three</code>
 
-> cookiecutter for big products<br> > <code>]$ pipenv install cookiecutter</code>
+> install django in pipenv
 
-> go into the virtual environment buble<br> > <code>]$ pipenv shell</code>
+> <code>]$ pipenv install django</code>
 
-> run cookiecutter<br> > <code>]$ cookiecutter https://github.com/pydanny/cookiecutter-django</code>
+> cookiecutter for big products
 
-> install requirements to set project <br> > <code>]$ pipenv install -r requirements/local.txt</code>
+> <code>]$ pipenv install cookiecutter</code>
 
-> setup database config on /config/settings/base.py (DATABASE CONFIGURATION)<br>
+> go into the virtual environment buble
 
-> create images app<br> > <code>cd nomadgram</code><br> > <code>django-admin startapp images</code><br>
+> <code>]$ pipenv shell</code>
+
+> run cookiecutter
+
+> <code>]$ cookiecutter https://github.com/pydanny/cookiecutter-django</code>
+
+> install requirements to set project
+
+> <code>]$ pipenv install -r requirements/local.txt</code>
+
+> setup database config on /config/settings/base.py (DATABASE CONFIGURATION)
+
+> create images app
+
+> <code>cd nomadgram</code>
+
+> <code>django-admin startapp images</code>
+
 > Change name variables in ImagesConfig class on apps.py to 'nomadgram.images'<br>
 > Add 'nomadgram.images.apps.ImagesConfig' to LOCAL_APPS configuration on base.py<br>
 > Add urls.py file in images app folder
@@ -38,9 +68,12 @@ Cloning instagram with python django and react / react native
 ## django orm
 
 > inherit from models class in django.db<br>
-> define class like beyond code<br> > <code>class Cat(models.Model):</code>
+> define class like beyond code
 
-> lookup can using in filter like this <code>.objects.filter(name\_\_startswith="Mr")</code><br>
+> <code>class Cat(models.Model):</code>
+
+> lookup can using in filter like this <code>.objects.filter(name\_\_startswith="Mr")</code>
+
 > lookup options<br>
 >
 > > startswith<br>
@@ -50,42 +83,26 @@ Cloning instagram with python django and react / react native
 > > lt<br>
 > > gt
 
-## postgreSQL
+> do migration
 
-> install requirements to set project <br>
-> <code>]$ pipenv install -r requirements/local.txt</code>
+> <code>python manage.py makemigrations</code>
 
-> setup database config on /config/settings/base.py (DATABASE CONFIGURATION)<br>
-
-> create images app<br>
-> <code>cd nomadgram</code><br>
-> <code>django-admin startapp images</code><br>
-> Change name variables in ImagesConfig class on apps.py to 'nomadgram.images'<br>
-> Add 'nomadgram.images.apps.ImagesConfig' to LOCAL_APPS configuration on base.py<br>
-> Add urls.py file in images app folder
-
-## django orm
-> inherit from models class in django.db<br>
-> define class like beyond code<br>
-> <code>class Cat(models.Model):</code>
-
-> lookup can using in filter like this <code>.objects.filter(name__startswith="Mr")</code><br>
-> lookup options<br>
->> startswith<br>
->> contains<br>
->> istartswith<br>
->> icontains<br>
->> lt<br>
->> gt
-
-> do migration<br>
-> <code>python manage.py makemigrations</code><br>
 > <code>python manage.py migrate</code>
 
 > django models : https://docs.djangoproject.com/en/1.11/topics/db/models/
 
 > django models field : https://docs.djangoproject.com/en/1.11/ref/models/fields/
 
+> Meta class internal model class is explains all the possible metadata options<br>
+> Meta class is other things not fields<br>
+> if you want define classs to abstract just add attribute on Meta class <code>abstract = True</code>
+
 ## postgreSQL
-> make database<br>
+
+> Download from https://postgresapp.com/ on mac
+
+> Download from https://www.pgadmin.org/download/ on linux or windows
+
+> make database
+
 > <code>CREATE DATABASE nomadgram;</code>

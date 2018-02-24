@@ -1,3 +1,4 @@
 {
-    "python.linting.enabled": true
+  "python.linting.enabled": true,
+  "python.pythonPath": "/Users/chicrock/.local/share/virtualenvs/nomadgram-V4YGkj-9/bin/python"
 }
