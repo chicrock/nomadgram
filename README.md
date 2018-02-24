@@ -93,6 +93,8 @@ Cloning instagram with python django and react / react native
 
 > django models field : https://docs.djangoproject.com/en/1.11/ref/models/fields/
 
+> django admin document : https://docs.djangoproject.com/en/1.11/ref/contrib/admin/
+
 > Meta class internal model class is explains all the possible metadata options<br>
 > Meta class is other things not fields<br>
 > if you want define classs to abstract just add attribute on Meta class <code>abstract = True</code>
