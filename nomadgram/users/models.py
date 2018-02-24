@@ -24,6 +24,10 @@ class User(AbstractUser):
     phone = models.CharField(max_length=20, null=True)
     gender = models.CharField(max_length=80, choices=GENDER_CHOICES, null=True)
 
+    # many to many fileds
+    followers = models.ManyToManyField("self")
+    following = models.ManyToManyField("self")
+
     def __str__(self):
         return self.username
 
