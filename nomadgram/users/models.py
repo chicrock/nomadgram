@@ -24,7 +24,7 @@ class User(AbstractUser):
     phone = models.CharField(max_length=20, null=True)
     gender = models.CharField(max_length=80, choices=GENDER_CHOICES, null=True)
 
-    # many to many fileds
+    # many to many fields
     followers = models.ManyToManyField("self")
     following = models.ManyToManyField("self")
 

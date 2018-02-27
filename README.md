@@ -4,107 +4,145 @@ Cloning instagram with python django and react / react native
 
 ## dev options on vsc
 
-> add This options in workspace settings in visual studio code for autocomplete
+add This options in workspace settings in visual studio code for autocomplete
 
-> <code>"python.pythonPath": "/Users/chicrock/.local/share/virtualenvs/nomadgram-V4YGkj-9/bin/python",</code>
+<pre>
+<code>"python.pythonPath": "/Users/chicrock/.local/share/virtualenvs/nomadgram-V4YGkj-9/bin/python",</code>
+</pre>
 
 ## git
 
-> <code>]$ git init </code>
-
-> <code>]$ git remote add origin {GITHUB_URL}</code>
-
-> <code>]$ git pull origin master</code>
-
-> <code>]$ git add .</code>
-
-> <code>]$ git commit -m 'Cleanup'</code>
-
-> <code>]$ git push origin master</code>
+<pre>
+<code>]$ git init 
+]$ git remote add origin {GITHUB_URL}
+]$ git pull origin master
+]$ git add .
+]$ git commit -m 'Cleanup'
+]$ git push origin master</code>
+</pre>
 
 ## django
 
-> make virtual environment with pipenv
+make virtual environment with pipenv
 
-> <code>]$ pip install pipenv</code>
+<pre><code>]$ pip install pipenv</code></pre>
 
-> --three means make python version 3 environment<br>
-> generate Pipfile in this folder. share this file for sharing there developement environment
+--three means make python version 3 environment<br>
+generate Pipfile in this folder. share this file for sharing there developement environment
 
-> <code>]$ pipenv --three</code>
+<pre><code>]$ pipenv --three</code></pre>
 
-> install django in pipenv
+install django in pipenv
 
-> <code>]$ pipenv install django</code>
+<pre><code>]$ pipenv install django</code></pre>
 
-> cookiecutter for big products
+cookiecutter for big products
 
-> <code>]$ pipenv install cookiecutter</code>
+<pre><code>]$ pipenv install cookiecutter</code></pre>
 
-> go into the virtual environment buble
+go into the virtual environment buble
 
-> <code>]$ pipenv shell</code>
+<pre><code>]$ pipenv shell</code></pre>
 
-> run cookiecutter
+run cookiecutter
 
-> <code>]$ cookiecutter https://github.com/pydanny/cookiecutter-django</code>
+<pre>
+<code>]$ cookiecutter https://github.com/pydanny/cookiecutter-django</code>
+</pre>
 
-> install requirements to set project
+install requirements to set project
 
-> <code>]$ pipenv install -r requirements/local.txt</code>
+<pre><code>]$ pipenv install -r requirements/local.txt</code></pre>
 
-> setup database config on /config/settings/base.py (DATABASE CONFIGURATION)
+setup database config on /config/settings/base.py (DATABASE CONFIGURATION)
 
-> create images app
+create images app
 
-> <code>cd nomadgram</code>
+<pre>
+<code>cd nomadgram
+django-admin startapp images</code>
+</pre>
 
-> <code>django-admin startapp images</code>
-
-> Change name variables in ImagesConfig class on apps.py to 'nomadgram.images'<br>
-> Add 'nomadgram.images.apps.ImagesConfig' to LOCAL_APPS configuration on base.py<br>
-> Add urls.py file in images app folder
+Change name variables in ImagesConfig class on apps.py to 'nomadgram.images'<br>
+Add 'nomadgram.images.apps.ImagesConfig' to LOCAL_APPS configuration on base.py<br>
+Add urls.py file in images app folder
 
 ## django orm
 
-> inherit from models class in django.db<br>
-> define class like beyond code
+inherit from models class in django.db<br>
+define class like beyond code
 
-> <code>class Cat(models.Model):</code>
+<pre><code>class Cat(models.Model):</code></pre>
 
-> lookup can using in filter like this <code>.objects.filter(name\_\_startswith="Mr")</code>
+lookup can using in filter like this <code>.objects.filter(name\_\_startswith="Mr")</code>
 
-> lookup options<br>
+lookup options<br>
+
+> startswith<br>
+> contains<br>
+> istartswith<br>
+> icontains<br>
+> lt<br>
+> gt
+
+do migration
+
+<pre>
+<code>]$ python manage.py makemigrations
+]$ python manage.py migrate</code>
+</pre>
+
+django models : https://docs.djangoproject.com/en/1.11/topics/db/models/
+
+django models field : https://docs.djangoproject.com/en/1.11/ref/models/fields/
+
+django admin document : https://docs.djangoproject.com/en/1.11/ref/contrib/admin/
+
+Meta class internal model class is explains all the possible metadata options<br>
+Meta class is other things not fields<br>
+if you want define classs to abstract just add attribute on Meta class <code>abstract = True</code>
+
+## RESTful API Design concepts
+
+REFER: [RESTful API designing guidelines](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9)
+
+<pre><code>]$ pipenv install djangorestframework
+]$ pipenv install markdown
+]$ pipenv install django-filter
+
+# After install add 'rest_framework' to THIRD_PARTY_APPS on /config/settings/base.py
+</code></pre>
+
+### Concepts
+
+> 1. Focus on NOUNS
+>     > GET /dogs <br>
+>     > POST /dogs <br>
+>     > DELETE /dogs
+>     > PUT /dogs <br>
+> 2. CRUD (CREATE, READ, UPDATE, DELETE)
+>     > GET /dogs/king <br>
+>     > POST /dogs/king (error)<br>
+>     > PUT /dogs/king (if king exists update, if not error)<br>
+>     > DELETE /dogs/king
+> 3. Variation
+>     > GET /dogs/search?color=black <br>
+>     > GET /owners/nicolas/dogs/search?color=black
+> 4. Version
+>     > GET /v1/dogs/search?color=black<br>
+>     > GET /v2/dogs/search?color=black
 >
-> > startswith<br>
-> > contains<br>
-> > istartswith<br>
-> > icontains<br>
-> > lt<br>
-> > gt
-
-> do migration
-
-> <code>python manage.py makemigrations</code>
-
-> <code>python manage.py migrate</code>
-
-> django models : https://docs.djangoproject.com/en/1.11/topics/db/models/
-
-> django models field : https://docs.djangoproject.com/en/1.11/ref/models/fields/
-
-> django admin document : https://docs.djangoproject.com/en/1.11/ref/contrib/admin/
-
-> Meta class internal model class is explains all the possible metadata options<br>
-> Meta class is other things not fields<br>
-> if you want define classs to abstract just add attribute on Meta class <code>abstract = True</code>
+> GET /owners/nicolas/dogs -> List of all the dogs that Nicolas has.<br>
+> POST /owners/nicolas/dogs -> Create a dog for Nicolas.<br>
+> PUT /owners/nicolas/dogs -> Update all of Nicolas's dogs.<br>
+> DELETE /owners/nicolas/dogs -> Delete all of Nicolas's dogs.
 
 ## postgreSQL
 
-> Download from https://postgresapp.com/ on mac
+Download from https://postgresapp.com/ on mac
 
-> Download from https://www.pgadmin.org/download/ on linux or windows
+Download from https://www.pgadmin.org/download/ on linux or windows
 
-> make database
+make database
 
-> <code>CREATE DATABASE nomadgram;</code>
+<pre><code>CREATE DATABASE nomadgram;</code></pre>
