@@ -44,7 +44,8 @@ class Comment(TimeStampedModel):
         user_model.User,
         null=True,
         on_delete=models.CASCADE)
-    image = models.ForeignKey(Image, null=True, on_delete=models.CASCADE)
+    image = models.ForeignKey(
+        Image, null=True, on_delete=models.CASCADE, related_name='comments')
 
     def __str__(self):
         return '{}'.format(self.message)
@@ -59,7 +60,8 @@ class Like(TimeStampedModel):
         user_model.User,
         null=True,
         on_delete=models.CASCADE)
-    image = models.ForeignKey(Image, null=True, on_delete=models.CASCADE)
+    image = models.ForeignKey(
+        Image, null=True, on_delete=models.CASCADE, related_name='likes')
 
     def __str__(self):
         return '{} - {}'.format(self.creator.username, self.image.caption)
