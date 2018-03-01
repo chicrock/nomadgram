@@ -139,6 +139,10 @@ REFER: [RESTful API designing guidelines](https://hackernoon.com/restful-api-des
 > PUT /owners/nicolas/dogs -> Update all of Nicolas's dogs.<br>
 > DELETE /owners/nicolas/dogs -> Delete all of Nicolas's dogs.
 
+### Api Planing
+
+[Use Trello](https://trello.com/b/iZEc0d2S)
+
 ## postgreSQL
 
 Download from https://postgresapp.com/ on mac
