@@ -113,6 +113,8 @@ REFER: [RESTful API designing guidelines](https://hackernoon.com/restful-api-des
 # After install add 'rest_framework' to THIRD_PARTY_APPS on /config/settings/base.py
 </code></pre>
 
+<code>See [Django rest Framework ApiGuide](http://www.django-rest-framework.org/api-guide/serializers/)</code>
+
 ### Concepts
 
 > 1. Focus on NOUNS
