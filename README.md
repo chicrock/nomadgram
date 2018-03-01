@@ -145,6 +145,10 @@ REFER: [RESTful API designing guidelines](https://hackernoon.com/restful-api-des
 
 [Use Trello](https://trello.com/b/iZEc0d2S)
 
+### Api Test
+
+Test with Postman
+
 ## postgreSQL
 
 Download from https://postgresapp.com/ on mac
