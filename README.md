@@ -154,3 +154,11 @@ Download from https://www.pgadmin.org/download/ on linux or windows
 make database
 
 <pre><code>CREATE DATABASE nomadgram;</code></pre>
+
+## Regular Expressions
+
+[Test Regular Expressions](https://regex101.com/)
+
+[Introduction to Regular Expressions](https://regexone.com/)
+
+See [Django URL Dispatcher](https://docs.djangoproject.com/en/2.0/topics/http/urls/) for more about Django urls

@@ -13,11 +13,15 @@ class Feed(APIView):
 
         image_list = []
 
-        for following in following_users:
-            user_images = following.images.all()[:2]
+        # need to get feed that wrote from followings. so change
+        image_list = models.Image.objects.filter(
+            creator__in=following_users)[:10]
 
-            for image in user_images:
-                image_list.append(image)
+        # for following in following_users:
+        # user_images = following.images.all()[:2]
+
+        #    for image in user_images:
+        #        image_list.append(image)
 
         sorted_list = sorted(
             image_list, key=lambda image: image.created_on, reverse=True)
