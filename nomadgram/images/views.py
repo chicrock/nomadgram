@@ -25,3 +25,14 @@ class Feed(APIView):
         serializer = serializers.ImageSerializer(sorted_list, many=True)
 
         return Response(serializer.data)
+
+
+class LikeImage(APIView):
+
+    def post(self, request, image_id, format=None):
+        """ Like image / Unlike image
+        can get image_id because set image_id parameter in urls.py """
+
+        print(image_id)
+
+        return Response(status=200)
