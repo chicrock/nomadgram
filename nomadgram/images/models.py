@@ -25,13 +25,24 @@ class Image(TimeStampedModel):
     file = models.ImageField()
     location = models.CharField(max_length=140)
     caption = models.TextField()
+
+    """ Add related_name "images" for search users all images.
+    It help to get all images which upload user """
     creator = models.ForeignKey(
         user_model.User,
         null=True,
-        on_delete=models.CASCADE)
+        on_delete=models.CASCADE,
+        related_name='images')
+
+    @property
+    def like_count(self):
+        return self.likes.all().count()
 
     def __str__(self):
         return '{} - {}'.format(self.location, self.caption)
+
+    class Meta:
+        ordering = ['-created_on']
 
 
 @python_2_unicode_compatible
