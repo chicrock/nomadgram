@@ -60,3 +60,17 @@ class UnFollowUser(APIView):
         user.save()
 
         return Response(status=status.HTTP_200_OK)
+
+
+class UserProfile(APIView):
+
+    def get(self, request, username, format=None):
+
+        try:
+            found_user = models.User.objects.get(username=username)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = serializers.UserProfileSerializer(found_user)
+
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
