@@ -22,3 +22,41 @@ class ExploreUsers(APIView):
         serializer = serializers.ExploreUserSerializer(last_five, many=True)
 
         return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+
+class FollowUser(APIView):
+
+    def post(self, request, user_id, format=None):
+        """ Follow User
+        """
+        user = request.user
+
+        try:
+            user_to_follow = models.User.objects.get(id=user_id)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        user.following.add(user_to_follow)
+
+        user.save()
+
+        return Response(status=status.HTTP_200_OK)
+
+
+class UnFollowUser(APIView):
+
+    def post(self, request, user_id, format=None):
+        """ Unfollow User
+        """
+        user = request.user
+
+        try:
+            unfollowing_user = user.following.get(id=user_id)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        user.following.remove(unfollowing_user)
+
+        user.save()
+
+        return Response(status=status.HTTP_200_OK)
