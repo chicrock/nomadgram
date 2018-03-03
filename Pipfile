@@ -35,6 +35,7 @@ pytest-sugar = "==0.9.1"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
+django-taggit = "*"
 
 
 [dev-packages]

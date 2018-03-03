@@ -64,8 +64,19 @@ django-admin startapp images</code>
 </pre>
 
 Change name variables in ImagesConfig class on apps.py to 'nomadgram.images'<br>
-Add 'nomadgram.images.apps.ImagesConfig' to LOCAL_APPS configuration on base.py<br>
+Add 'nomadgram.images.apps.ImagesConfig' to LOCAL_APPS configuration on config/settings/base.py<br>
 Add urls.py file in images app folder
+
+<pre>
+<code># install taggit for approach to taggings
+]$ pipenv install django-taggit
+
+# After install add 'taggit' in THIRD_PARTY_APPS on config/settings/base.py
+
+]$ python manage.py migrate
+
+# After all add TAGGIT_CASE_INSENSITIVE = True on last line of config/settings/base.py
+</code></pre>
 
 ## django orm
 
