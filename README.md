@@ -115,6 +115,8 @@ REFER: [RESTful API designing guidelines](https://hackernoon.com/restful-api-des
 
 <code>See [Django rest Framework ApiGuide](http://www.django-rest-framework.org/api-guide/serializers/)</code>
 
+<code>See [Django rest Framework RequestData](http://www.django-rest-framework.org/api-guide/requests/#data)</code>
+
 <code>See [Django Middleware](https://docs.djangoproject.com/en/1.11/ref/request-response/#attributes-set-by-middleware)</code>
 
 ### Concepts

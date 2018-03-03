@@ -1,5 +1,9 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
+
+from django.core.exceptions import ObjectDoesNotExist
+
 from . import models, serializers
 
 
@@ -35,18 +39,72 @@ class LikeImage(APIView):
 
     def post(self, request, image_id, format=None):
         """ Like image / Unlike image
-        can get image_id because set image_id parameter in urls.py """
+        can get image_id because set image_id parameter in urls.py
+        """
+
+        user = request.user
 
         try:
             found_image = models.Image.objects.get(id=image_id)
-        except models.Image.DoseNotExist:
-            return Response(status=404)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
-        new_like = models.Like.objects.create(
-            creator=request.user,
-            image=found_image
-        )
+        try:
+            pre_existing_like = models.Like.objects.get(
+                creator=user, image=found_image
+            )
+            pre_existing_like.delete()
 
-        new_like.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
-        return Response(status=200)
+        except ObjectDoesNotExist:
+            new_like = models.Like.objects.create(
+                creator=request.user,
+                image=found_image
+            )
+
+            new_like.save()
+
+            return Response(status=status.HTTP_201_CREATED)
+
+
+class CommentOnImage(APIView):
+
+    def post(self, request, image_id, format=None):
+        """ Comment On a Image
+        Get Image id from urls
+        """
+
+        user = request.user
+
+        try:
+            found_image = models.Image.objects.get(id=image_id)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        # It make message and creator in commentserializer
+        serializer = serializers.CommentSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save(creator=user, image=found_image)
+
+            return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class Comment(APIView):
+
+    def delete(self, request, comment_id, format=None):
+        """ Delete Comment
+        Get Comment id from urls
+        """
+
+        user = request.user
+
+        try:
+            comment = models.Comment.objects.get(id=comment_id, creator=user)
+            comment.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
