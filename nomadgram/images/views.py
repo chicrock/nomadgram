@@ -38,7 +38,39 @@ class Feed(APIView):
 class LikeImage(APIView):
 
     def post(self, request, image_id, format=None):
-        """ Like image / Unlike image
+        """ Like image
+        can get image_id because set image_id parameter in urls.py
+        """
+
+        user = request.user
+
+        try:
+            found_image = models.Image.objects.get(id=image_id)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            pre_existing_like = models.Like.objects.get(
+                creator=user, image=found_image
+            )
+
+            return Response(status=status.HTTP_304_NOT_MODIFIED)
+
+        except ObjectDoesNotExist:
+            new_like = models.Like.objects.create(
+                creator=request.user,
+                image=found_image
+            )
+
+            new_like.save()
+
+            return Response(status=status.HTTP_201_CREATED)
+
+
+class UnLikeImage(APIView):
+
+    def post(self, request, image_id, format=None):
+        """ Unlike image
         can get image_id because set image_id parameter in urls.py
         """
 
@@ -58,14 +90,8 @@ class LikeImage(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
 
         except ObjectDoesNotExist:
-            new_like = models.Like.objects.create(
-                creator=request.user,
-                image=found_image
-            )
 
-            new_like.save()
-
-            return Response(status=status.HTTP_201_CREATED)
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 class CommentOnImage(APIView):
