@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 
 from . import models, serializers
 
@@ -21,7 +22,7 @@ class Feed(APIView):
 
         # need to get feed that wrote from followings. so change
         image_list = models.Image.objects.filter(
-            creator__in=following_users)[:10]
+            Q(creator__in=following_users) | Q(creator=user)).distinct()[:10]
 
         # for following in following_users:
         # user_images = following.images.all()[:2]
