@@ -65,7 +65,8 @@ django-admin startapp images</code>
 
 Change name variables in ImagesConfig class on apps.py to 'nomadgram.images'<br>
 Add 'nomadgram.images.apps.ImagesConfig' to LOCAL_APPS configuration on config/settings/base.py<br>
-Add urls.py file in images app folder
+Add urls.py file in images app folder<br>
+Add urls on config/urls.py file
 
 <pre>
 <code># install taggit for approach to taggings
@@ -132,20 +133,20 @@ REFER: [RESTful API designing guidelines](https://hackernoon.com/restful-api-des
 
 ### Concepts
 
-> 1. Focus on NOUNS
+> 1.  Focus on NOUNS
 >     > GET /dogs <br>
 >     > POST /dogs <br>
 >     > DELETE /dogs
 >     > PUT /dogs <br>
-> 2. CRUD (CREATE, READ, UPDATE, DELETE)
+> 2.  CRUD (CREATE, READ, UPDATE, DELETE)
 >     > GET /dogs/king <br>
 >     > POST /dogs/king (error)<br>
 >     > PUT /dogs/king (if king exists update, if not error)<br>
 >     > DELETE /dogs/king
-> 3. Variation
+> 3.  Variation
 >     > GET /dogs/search?color=black <br>
 >     > GET /owners/nicolas/dogs/search?color=black
-> 4. Version
+> 4.  Version
 >     > GET /v1/dogs/search?color=black<br>
 >     > GET /v2/dogs/search?color=black
 >
