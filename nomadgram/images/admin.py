@@ -13,7 +13,7 @@ class ImageAdmin(admin.ModelAdmin):
     )
 
     list_display_links = (
-        'location',
+        'caption',
     )
 
     list_filter = (

@@ -138,7 +138,9 @@ class Comment(APIView):
 
         try:
             comment = models.Comment.objects.get(id=comment_id, creator=user)
+
             comment.delete()
+
             return Response(status=status.HTTP_204_NO_CONTENT)
         except ObjectDoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
@@ -166,3 +168,22 @@ class Search(APIView):
 
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class ModerateComments(APIView):
+
+    def delete(self, request, image_id, comment_id, format=None):
+        """ delete comments
+        """
+
+        user = request.user
+
+        try:
+            comment = models.Comment.objects.get(
+                id=comment_id, image__id=image_id, image__creator=user)
+
+            comment.delete()
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
