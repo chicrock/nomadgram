@@ -19,7 +19,7 @@ class ExploreUsers(APIView):
         followings = user.following.all()
 
         last_five = models.User.objects.exclude(
-            id__in=[following.id for following in followings]).order_by('-date_joined')[:5]
+            following__in=followings).order_by('-date_joined')[:5]
 
         serializer = serializers.ListUserSerializer(last_five, many=True)
 
