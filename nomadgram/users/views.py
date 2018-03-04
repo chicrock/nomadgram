@@ -6,6 +6,8 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from . import models, serializers
 
+from nomadgram.notifications import views as notification_views
+
 
 class ExploreUsers(APIView):
 
@@ -40,12 +42,14 @@ class FollowUser(APIView):
 
         user.save()
 
+        notification_views.create_notification(user, user_to_follow, 'follow')
+
         return Response(status=status.HTTP_200_OK)
 
 
 class UnFollowUser(APIView):
 
-    def post(self, request, user_id, format=None):
+    def delete(self, request, user_id, format=None):
         """ Unfollow User
         """
         user = request.user

@@ -10,11 +10,11 @@ class User(AbstractUser):
 
     """ User Model """
 
-    GENDER_CHOICES = {
+    GENDER_CHOICES = (
         ('male', 'Male'),
         ('female', 'Female'),
         ('not-specified', 'Not specified')
-    }
+    )
 
     # First Name and Last Name do not cover name patterns
     # around the globe.
