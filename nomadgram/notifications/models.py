@@ -27,3 +27,4 @@ class Notification(image_models.TimeStampedModel):
         max_length=20, choices=TYPE_CHOICES)
     image = models.ForeignKey(
         image_models.Image, on_delete=models.CASCADE, null=True, blank=True)
+    comment = models.TextField(null=True, blank=True)
