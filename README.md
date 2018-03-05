@@ -82,6 +82,25 @@ Add urls on config/urls.py file
 *   Django default password module help to change password process<br>
     <code>[Django Check Password Docs](https://docs.djangoproject.com/en/1.11/ref/contrib/auth/#django.contrib.auth.models.User.check_password)</code>
 
+*   JWT (Authentication process)
+    *   JSON Web Token [(Introduction to JSON Web Tokens)](https://jwt.io/introduction/)
+    *   [Installation](http://getblimp.github.io/django-rest-framework-jwt/)
+    *   config about authentication is in AUTHENTICATION_BACKENDS variables on /config/settings/base.py
+    *   Process
+        > 1.  POST /users/login with username and password
+        > 2.  Creates a JWT with a secret
+        > 3.  Returns the JWT to the Browser
+        > 4.  Sends the JWT on the Authorization Header
+        > 5.  Check JWT signature.
+        > 6.  Get user infomation from the JWT
+        > 7.  Sends resposne to the client
+    *   It process instead of cookies or sessions
+
+<pre><code>]$ pipenv install djangorestframework-jwt</code></pre>
+
+<pre><code>Get tokens from /api-token-auth/
+After, Request others with Header having Authrization: JWT [TOKENS]</code></pre>
+
 ## django orm
 
 inherit from models class in django.db<br>

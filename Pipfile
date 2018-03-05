@@ -36,6 +36,7 @@ djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
 django-taggit = "*"
+djangorestframework-jwt = "*"
 
 
 [dev-packages]
