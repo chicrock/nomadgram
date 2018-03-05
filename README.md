@@ -79,6 +79,9 @@ Add urls on config/urls.py file
 # After all add TAGGIT_CASE_INSENSITIVE = True on last line of config/settings/base.py
 </code></pre>
 
+*   Django default password module help to change password process<br>
+    <code>[Django Check Password Docs](https://docs.djangoproject.com/en/1.11/ref/contrib/auth/#django.contrib.auth.models.User.check_password)</code>
+
 ## django orm
 
 inherit from models class in django.db<br>
