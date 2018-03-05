@@ -208,6 +208,23 @@ class ModerateComments(APIView):
 
 class ImageDetail(APIView):
 
+    def _find_image_owner(self, image_id, user):
+        """ Find image creator and user is same person
+
+        Arguments:
+            image_id {int} -- image id
+            user {User} -- user object
+
+        Returns:
+            Image -- image object
+        """
+
+        try:
+            image = models.Image.objects.get(id=image_id, creator=user)
+            return image
+        except ObjectDoesNotExist:
+            return None
+
     def get(self, request, image_id, format=None):
         """ Get Single image
         """
@@ -227,9 +244,9 @@ class ImageDetail(APIView):
 
         user = request.user
 
-        try:
-            image = models.Image.objects.get(id=image_id, creator=user)
-        except ObjectDoesNotExist:
+        image = self._find_image_owner(image_id, user)
+
+        if image is None:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
         serializer = serializers.InputImageSerializer(
@@ -241,3 +258,16 @@ class ImageDetail(APIView):
             return Response(data=serializer.data, status=status.HTTP_204_NO_CONTENT)
         else:
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, image_id, format=None):
+
+        user = request.user
+
+        image = self._find_image_owner(image_id, user)
+
+        if image is None:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+        image.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
