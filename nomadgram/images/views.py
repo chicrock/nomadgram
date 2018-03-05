@@ -7,6 +7,8 @@ from django.db.models import Q
 
 from . import models, serializers
 
+from nomadgram.users import models as user_model
+from nomadgram.users import serializers as user_serializer
 from nomadgram.notifications import views as notification_views
 
 
@@ -39,6 +41,20 @@ class Feed(APIView):
 
 
 class LikeImage(APIView):
+
+    def get(self, request, image_id, format=None):
+
+        try:
+            likes = models.Like.objects.filter(image__id=image_id)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        like_creator_id = likes.values('creator_id')
+        users = user_model.User.objects.filter(id__in=like_creator_id)
+
+        serializer = user_serializer.ListUserSerializer(users, many=True)
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, image_id, format=None):
         """ Like image
@@ -206,3 +222,22 @@ class ImageDetail(APIView):
         serializer = serializers.ImageSerializer(image)
 
         return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+    def put(self, request, image_id, format=None):
+
+        user = request.user
+
+        try:
+            image = models.Image.objects.get(id=image_id, creator=user)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+        serializer = serializers.InputImageSerializer(
+            image, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save(creator=user)
+
+            return Response(data=serializer.data, status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
