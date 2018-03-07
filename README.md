@@ -101,6 +101,10 @@ Add urls on config/urls.py file
 <pre><code>Get tokens from /api-token-auth/
 After, Request others with Header having Authrization: JWT [TOKENS]</code></pre>
 
+[Django Taggit Rest Serializer](https://github.com/glemmaPaul/django-taggit-serializer)
+
+<pre><code>]$ pipenv install django-taggit-serializer</code></pre>
+
 ## django orm
 
 inherit from models class in django.db<br>
