@@ -105,6 +105,13 @@ After, Request others with Header having Authrization: JWT [TOKENS]</code></pre>
 
 <pre><code>]$ pipenv install django-taggit-serializer</code></pre>
 
+[Django Rest Auth on Github](https://github.com/Tivix/django-rest-auth)
+
+[Django Rest Auth Documentation(Can find about social auth)](http://django-rest-auth.readthedocs.io/en/latest/)
+
+<pre><code>]$ pipenv install django-rest-auth
+]$ python manage.py migrate</code></pre>
+
 ## django orm
 
 inherit from models class in django.db<br>
