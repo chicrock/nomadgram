@@ -112,6 +112,14 @@ After, Request others with Header having Authrization: JWT [TOKENS]</code></pre>
 <pre><code>]$ pipenv install django-rest-auth
 ]$ python manage.py migrate</code></pre>
 
+[Facebook Developers](https://developers.facebook.com/)
+
+[Get your access token for testing](https://developers.facebook.com/tools/accesstoken/)
+
+[Google login with allauth](http://django-allauth.readthedocs.io/en/latest/providers.html#google)
+
+> Add Social application in admin page
+
 ## django orm
 
 inherit from models class in django.db<br>
