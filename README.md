@@ -118,6 +118,10 @@ After, Request others with Header having Authrization: JWT [TOKENS]</code></pre>
 
 [Google login with allauth](http://django-allauth.readthedocs.io/en/latest/providers.html#google)
 
+[Google api console](https://console.developers.google.com/apis)
+
+[Get google access token for testing](https://developers.google.com/oauthplayground/)
+
 > Add Social application in admin page
 
 ## django orm
