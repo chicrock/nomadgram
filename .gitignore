@@ -174,8 +174,8 @@ typings/
 
 
 ### VisualStudioCode template
-.vscode/*
-# !.vscode/settings.json
+
+.vscode
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
