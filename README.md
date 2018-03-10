@@ -1,10 +1,10 @@
 # Nomadgram
 
-Cloning instagram with python django and react / react native
+* Cloning instagram with python django and react / react native
 
 ## dev options on vsc
 
-add This options in workspace settings in visual studio code for autocomplete
+* add This options in workspace settings in visual studio code for autocomplete
 
 <pre>
 <code>"python.pythonPath": "/Users/chicrock/.local/share/virtualenvs/nomadgram-V4YGkj-9/bin/python",</code>
@@ -23,7 +23,7 @@ add This options in workspace settings in visual studio code for autocomplete
 
 ## django
 
-make virtual environment with pipenv
+* make virtual environment with pipenv
 
 <pre><code>]$ pip install pipenv</code></pre>
 
@@ -32,41 +32,41 @@ generate Pipfile in this folder. share this file for sharing there developement 
 
 <pre><code>]$ pipenv --three</code></pre>
 
-install django in pipenv
+* install django in pipenv
 
 <pre><code>]$ pipenv install django</code></pre>
 
-cookiecutter for big products
+* cookiecutter for big products
 
 <pre><code>]$ pipenv install cookiecutter</code></pre>
 
-go into the virtual environment buble
+* go into the virtual environment buble
 
 <pre><code>]$ pipenv shell</code></pre>
 
-run cookiecutter
+* run cookiecutter
 
 <pre>
 <code>]$ cookiecutter https://github.com/pydanny/cookiecutter-django</code>
 </pre>
 
-install requirements to set project
+* install requirements to set project
 
 <pre><code>]$ pipenv install -r requirements/local.txt</code></pre>
 
-setup database config on /config/settings/base.py (DATABASE CONFIGURATION)
+* setup database config on /config/settings/base.py (DATABASE CONFIGURATION)
 
-create images app
+* create images app
 
 <pre>
 <code>cd nomadgram
 django-admin startapp images</code>
 </pre>
 
-Change name variables in ImagesConfig class on apps.py to 'nomadgram.images'<br>
-Add 'nomadgram.images.apps.ImagesConfig' to LOCAL_APPS configuration on config/settings/base.py<br>
-Add urls.py file in images app folder<br>
-Add urls on config/urls.py file
+* Change name variables in ImagesConfig class on apps.py to 'nomadgram.images'<br>
+* Add 'nomadgram.images.apps.ImagesConfig' to LOCAL_APPS configuration on config/settings/base.py<br>
+* Add urls.py file in images app folder<br>
+* Add urls on config/urls.py file
 
 <pre>
 <code># install taggit for approach to taggings
@@ -101,39 +101,39 @@ Add urls on config/urls.py file
 <pre><code>Get tokens from /api-token-auth/
 After, Request others with Header having Authrization: JWT [TOKENS]</code></pre>
 
-[Django Taggit Rest Serializer](https://github.com/glemmaPaul/django-taggit-serializer)
+* [Django Taggit Rest Serializer](https://github.com/glemmaPaul/django-taggit-serializer)
 
 <pre><code>]$ pipenv install django-taggit-serializer</code></pre>
 
-[Django Rest Auth on Github](https://github.com/Tivix/django-rest-auth)
+* [Django Rest Auth on Github](https://github.com/Tivix/django-rest-auth)
 
-[Django Rest Auth Documentation(Can find about social auth)](http://django-rest-auth.readthedocs.io/en/latest/)
+* [Django Rest Auth Documentation(Can find about social auth)](http://django-rest-auth.readthedocs.io/en/latest/)
 
 <pre><code>]$ pipenv install django-rest-auth
 ]$ python manage.py migrate</code></pre>
 
-[Facebook Developers](https://developers.facebook.com/)
+* [Facebook Developers](https://developers.facebook.com/)
 
-[Get your access token for testing](https://developers.facebook.com/tools/accesstoken/)
+* [Get your access token for testing](https://developers.facebook.com/tools/accesstoken/)
 
-[Google login with allauth](http://django-allauth.readthedocs.io/en/latest/providers.html#google)
+* [Google login with allauth](http://django-allauth.readthedocs.io/en/latest/providers.html#google)
 
-[Google api console](https://console.developers.google.com/apis)
+* [Google api console](https://console.developers.google.com/apis)
 
-[Get google access token for testing](https://developers.google.com/oauthplayground/)
+* [Get google access token for testing](https://developers.google.com/oauthplayground/)
 
 > Add Social application in admin page
 
 ## django orm
 
-inherit from models class in django.db<br>
-define class like beyond code
+* inherit from models class in django.db<br>
+* define class like beyond code
 
 <pre><code>class Cat(models.Model):</code></pre>
 
-lookup can using in filter like this <code>.objects.filter(name\_\_startswith="Mr")</code>
+* lookup can using in filter like this <code>.objects.filter(name\_\_startswith="Mr")</code>
 
-lookup options<br>
+* lookup options<br>
 
 > startswith<br>
 > contains<br>
@@ -149,19 +149,19 @@ do migration
 ]$ python manage.py migrate</code>
 </pre>
 
-django models : https://docs.djangoproject.com/en/1.11/topics/db/models/
+* [django models](https://docs.djangoproject.com/en/1.11/topics/db/models/)
 
-django models field : https://docs.djangoproject.com/en/1.11/ref/models/fields/
-
-django admin document : https://docs.djangoproject.com/en/1.11/ref/contrib/admin/
-
-Meta class internal model class is explains all the possible metadata options<br>
-Meta class is other things not fields<br>
-if you want define classs to abstract just add attribute on Meta class <code>abstract = True</code>
+* [django models field](https://docs.djangoproject.com/en/1.11/ref/models/fields/)
+ 
+* [django admin document](https://docs.djangoproject.com/en/1.11/ref/contrib/admin/)
+ 
+* Meta class internal model class is explains all the possible metadata options<br>
+* Meta class is other things not fields<br>
+* if you want define classs to abstract just add attribute on Meta class <code>abstract = True</code>
 
 ## RESTful API Design concepts
 
-REFER: [RESTful API designing guidelines](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9)
+* REFER: [RESTful API designing guidelines](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9)
 
 <pre><code>]$ pipenv install djangorestframework
 ]$ pipenv install markdown
@@ -170,61 +170,61 @@ REFER: [RESTful API designing guidelines](https://hackernoon.com/restful-api-des
 # After install add 'rest_framework' to THIRD_PARTY_APPS on /config/settings/base.py
 </code></pre>
 
-<code>See [Django rest Framework ApiGuide](http://www.django-rest-framework.org/api-guide/serializers/)</code>
+* <code>[Django rest Framework ApiGuide](http://www.django-rest-framework.org/api-guide/serializers/)</code>
 
-<code>See [Django rest Framework RequestData](http://www.django-rest-framework.org/api-guide/requests/#data)</code>
+* <code>[Django rest Framework RequestData](http://www.django-rest-framework.org/api-guide/requests/#data)</code>
 
-<code>See [Django Middleware](https://docs.djangoproject.com/en/1.11/ref/request-response/#attributes-set-by-middleware)</code>
+* <code>[Django Middleware](https://docs.djangoproject.com/en/1.11/ref/request-response/#attributes-set-by-middleware)</code>
 
 ### Concepts
 
-> 1.  Focus on NOUNS
->     > GET /dogs <br>
->     > POST /dogs <br>
->     > DELETE /dogs
->     > PUT /dogs <br>
-> 2.  CRUD (CREATE, READ, UPDATE, DELETE)
->     > GET /dogs/king <br>
->     > POST /dogs/king (error)<br>
->     > PUT /dogs/king (if king exists update, if not error)<br>
->     > DELETE /dogs/king
-> 3.  Variation
->     > GET /dogs/search?color=black <br>
->     > GET /owners/nicolas/dogs/search?color=black
-> 4.  Version
->     > GET /v1/dogs/search?color=black<br>
->     > GET /v2/dogs/search?color=black
->
-> GET /owners/nicolas/dogs -> List of all the dogs that Nicolas has.<br>
-> POST /owners/nicolas/dogs -> Create a dog for Nicolas.<br>
-> PUT /owners/nicolas/dogs -> Update all of Nicolas's dogs.<br>
-> DELETE /owners/nicolas/dogs -> Delete all of Nicolas's dogs.
+ 1.  Focus on NOUNS
+     > GET /dogs <br>
+     > POST /dogs <br>
+     > DELETE /dogs
+     > PUT /dogs <br>
+ 2.  CRUD (CREATE, READ, UPDATE, DELETE)
+     > GET /dogs/king <br>
+     > POST /dogs/king (error)<br>
+     > PUT /dogs/king (if king exists update, if not error)<br>
+     > DELETE /dogs/king
+ 3.  Variation
+     > GET /dogs/search?color=black <br>
+     > GET /owners/nicolas/dogs/search?color=black
+ 4.  Version
+     > GET /v1/dogs/search?color=black<br>
+     > GET /v2/dogs/search?color=black
+
+ GET /owners/nicolas/dogs -> List of all the dogs that Nicolas has.<br>
+ POST /owners/nicolas/dogs -> Create a dog for Nicolas.<br>
+ PUT /owners/nicolas/dogs -> Update all of Nicolas's dogs.<br>
+ DELETE /owners/nicolas/dogs -> Delete all of Nicolas's dogs.
 
 ### Api Planing
 
-[Use Trello](https://trello.com/b/iZEc0d2S)
+* [Use Trello](https://trello.com/b/iZEc0d2S)
 
 ### Api Test
 
-Test with Postman
+* Test with Postman
 
 ## postgreSQL
 
-Download from https://postgresapp.com/ on mac
+* Download from https://postgresapp.com/ on mac
 
-Download from https://www.pgadmin.org/download/ on linux or windows
+* Download from https://www.pgadmin.org/download/ on linux or windows
 
-make database
+* make database
 
 <pre><code>CREATE DATABASE nomadgram;</code></pre>
 
 ## Regular Expressions
 
-[Test Regular Expressions](https://regex101.com/)
+* [Test Regular Expressions](https://regex101.com/)
 
-[Introduction to Regular Expressions](https://regexone.com/)
+* [Introduction to Regular Expressions](https://regexone.com/)
 
-See [Django URL Dispatcher](https://docs.djangoproject.com/en/2.0/topics/http/urls/) for more about Django urls
+* See [Django URL Dispatcher](https://docs.djangoproject.com/en/2.0/topics/http/urls/) for more about Django urls
 
 
 ## Create Reactjs 
@@ -251,3 +251,5 @@ See [Django URL Dispatcher](https://docs.djangoproject.com/en/2.0/topics/http/ur
 
 <pre><code># loader load sass module to webpack
 ]$ yarn add node-sass sass-loader</code></pre>
+
+* See [What are CSS Modules and why do we need them?](https://css-tricks.com/css-modules-part-1-need/)
