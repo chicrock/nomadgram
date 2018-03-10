@@ -260,7 +260,7 @@ do migration
 
 * See [What are CSS Modules and why do we need them?](https://css-tricks.com/css-modules-part-1-need/)
 
-* CSS moduels
+### CSS modules
 
 > It can help to separates like class name. 
 >
@@ -269,3 +269,66 @@ do migration
 > example : Nav__list__cs322903, Photo__list__ac293827
 
 > See [webpack-contrib/css-loader](https://github.com/webpack-contrib/css-loader#modules)
+
+### Merge django and reactjs
+
+1. proxy setting
+
+> * For request to django server fro reactjs web app(For developmenet)
+
+> * reactjs request from 3000 to django server on port 8000. But django reject request from 3000.
+
+> * reactjs can not fetch django url. so proxy setting can do help.
+
+> * example:
+
+>> <pre><code>fetch('/notifications/')</code></pre>
+
+>> It cannot found on 3000 port. so proxy setting forward this request to 8000 port.
+
+2. install django-cores-heladers in django project
+
+> * Need to accept another port request on django server
+
+> <pre><code>pipenv install django-cors-headers</code></pre>
+
+> * Add 'corsheaders' in THIRD_PARTY_APPS vars on config/settings/base.py in django
+
+> * Add 'corsheaders.middleware.CorsMiddleware' before 'CommonMiddleware' in MIDDLEWARE vars on config/settings/base.py in django
+
+> * Add `CORS_ORIGIN_ALLOW_ALL = True` on the bottom of config/settings/base.py in django
+
+3. Add react web app to django
+
+> * response reactjs web app when reqeust django web page (not include rest api url)
+
+> * Add `str(ROOT_DIR.path('frontend', 'build', 'static'))` in STATICFILES_DIRS on config/settings/base.py in django
+
+> * Create a views.py file on root project directory (ROOT_DIR/nomadgram)
+
+> * Add `url(r'^', views.ReactAppView.as_view()),` last of the list urlpatterns on config/urls.py
+
+> * Django can read build files !!
+
+<pre><code># nomadgram/views.py
+from django.views.generic import View
+from django.http import HttpResponse
+from django.conf import settings
+import os
+
+
+class ReactAppView(View):
+
+    def get(self, request):
+        try:
+            with open(os.path.join(str(settings.ROOT_DIR), 'frontend', 'build', 'index.html')) as file:
+                return HttpResponse(file.read())
+
+        except:
+            return HttpResponse(
+                """ index.html not found ! build your React app !!
+                """,
+
+                status=501,
+            )
+</code></pre>
