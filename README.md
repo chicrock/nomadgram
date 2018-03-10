@@ -249,7 +249,23 @@ do migration
 
 * webpack load loaders bottom to top
 
+> It means load
+>
+> sass-loader -> postcss-loader -> css-loader -> style-loader
+>
+> sequentially on development
+
 <pre><code># loader load sass module to webpack
 ]$ yarn add node-sass sass-loader</code></pre>
 
 * See [What are CSS Modules and why do we need them?](https://css-tricks.com/css-modules-part-1-need/)
+
+* CSS moduels
+
+> It can help to separates like class name. 
+>
+> It change class names like {components_name}__{class_name}__{hash}
+>
+> example : Nav__list__cs322903, Photo__list__ac293827
+
+> See [webpack-contrib/css-loader](https://github.com/webpack-contrib/css-loader#modules)
