@@ -227,8 +227,10 @@ make database
 See [Django URL Dispatcher](https://docs.djangoproject.com/en/2.0/topics/http/urls/) for more about Django urls
 
 
-## Create Reactjs Web
-* See [Facebook incubator create-react-app github](https://github.com/facebookincubator/create-react-app)
+## Create Reactjs 
+
+*   See [Facebook incubator create-react-app github](https://github.com/facebookincubator/create-react-app)
+
 <pre><code># install create-react-app
 ]$ yarn global add create-react-app
 
@@ -237,3 +239,5 @@ See [Django URL Dispatcher](https://docs.djangoproject.com/en/2.0/topics/http/ur
 ]$ cd frontend
 ]$ yarn start
 </code></pre>
+
+*   create-react-app cannot use sass and css modules. so need to eject !!(means use our webpack.config.js)
