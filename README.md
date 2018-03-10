@@ -1,4 +1,4 @@
-# nomadgram
+# Nomadgram
 
 Cloning instagram with python django and react / react native
 
@@ -225,3 +225,15 @@ make database
 [Introduction to Regular Expressions](https://regexone.com/)
 
 See [Django URL Dispatcher](https://docs.djangoproject.com/en/2.0/topics/http/urls/) for more about Django urls
+
+
+## Create Reactjs Web
+* See [Facebook incubator create-react-app github](https://github.com/facebookincubator/create-react-app)
+<pre><code># install create-react-app
+]$ yarn global add create-react-app
+
+# create react project
+]$ create-react-app frontend
+]$ cd frontend
+]$ yarn start
+</code></pre>
