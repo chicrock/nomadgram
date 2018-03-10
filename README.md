@@ -241,3 +241,6 @@ See [Django URL Dispatcher](https://docs.djangoproject.com/en/2.0/topics/http/ur
 </code></pre>
 
 *   create-react-app cannot use sass and css modules. so need to eject !!(means use our webpack.config.js)
+
+<pre><code># eject react
+]$ yarn eject</code></pre>
