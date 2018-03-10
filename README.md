@@ -244,3 +244,10 @@ See [Django URL Dispatcher](https://docs.djangoproject.com/en/2.0/topics/http/ur
 
 <pre><code># eject react
 ]$ yarn eject</code></pre>
+
+* After eject need to install modules about sass
+
+* webpack load loaders bottom to top
+
+<pre><code># loader load sass module to webpack
+]$ yarn add node-sass sass-loader</code></pre>

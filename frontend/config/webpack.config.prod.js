@@ -166,10 +166,13 @@ module.exports = {
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
           {
-            test: /\.css$/,
+            test: /\.(css|scss)$/,
+            /// It exists in the form of a plugins, not a modules in production mode
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
+                  /// when make css error. then style-loader activate.
+                  /// It's write style on html head
                   fallback: {
                     loader: require.resolve('style-loader'),
                     options: {
@@ -203,8 +206,15 @@ module.exports = {
                             flexbox: 'no-2009',
                           }),
                         ],
+                        sourceMap: true
                       },
                     },
+                    {
+                      loader: require.resolve('sass-loader'),
+                      options:{
+                        sourceMap: true
+                      }
+                    }
                   ],
                 },
                 extractTextPluginOptions
