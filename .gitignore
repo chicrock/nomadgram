@@ -307,3 +307,5 @@ nomadgram/media/
 
 
 Pipfile.lock
+
+!frontend/scripts
