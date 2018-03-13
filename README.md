@@ -341,4 +341,7 @@ class ReactAppView(View):
 
 *   Redux middlewares are between react app and store(send actions to our redux store)
 
-<pre><code>]$ redux-thunk</code></pre>
+<pre><code>]$ yarn add redux-thunk</code></pre>
+
+<pre><code># Install redux-logger in devDependencies
+]$ yarn add redux-logger --dev</code></pre>

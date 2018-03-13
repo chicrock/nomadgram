@@ -6,7 +6,9 @@ import store from 'redux/configureStore';
 import 'index.css';
 import App from 'App';
 
-console.log(store.getState());
+/// console.log(store.getState());
+
+store.dispatch({ type: 'BULLSHIT' });
 
 ReactDOM.render(
     <Provider store={store}>
