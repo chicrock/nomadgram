@@ -350,3 +350,21 @@ class ReactAppView(View):
 
 <pre><code># Install react-router-dom
 ]$ yarn add react-router-dom react-router-redux@next history </code></pre>
+
+### Reactotron (dev environment)
+
+*   App for Inspecting ReactJS and React Native apps
+
+*   See [Reactotron](https://github.com/infinitered/reactotron)
+
+<pre><code># Install Reactotron
+]$ npm install -g reactotron-cli
+
+# Add to project
+]$ yarn add reactotron-react-js --dev
+
+# Install reactotron-redux for redux
+]$ yarn add reactotron-redux --dev
+</code></pre>
+
+*   Make ReactotronConfig.js file on src
