@@ -357,6 +357,8 @@ class ReactAppView(View):
 
 *   See [Reactotron](https://github.com/infinitered/reactotron)
 
+*   Download from [Reactotron Download](https://github.com/infinitered/reactotron/blob/master/docs/installing.md)
+
 <pre><code># Install Reactotron
 ]$ npm install -g reactotron-cli
 
