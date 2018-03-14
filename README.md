@@ -345,3 +345,8 @@ class ReactAppView(View):
 
 <pre><code># Install redux-logger in devDependencies
 ]$ yarn add redux-logger --dev</code></pre>
+
+### React Router
+
+<pre><code># Install react-router-dom
+]$ yarn add react-router-dom react-router-redux@next history </code></pre>

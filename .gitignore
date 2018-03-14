@@ -309,3 +309,4 @@ nomadgram/media/
 Pipfile.lock
 
 !frontend/scripts
+!frontend/.env
