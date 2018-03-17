@@ -1,12 +1,12 @@
 .footer {
   max-width: $max-page-width;
   width: 100%;
-  margin: 0 auto;
+  margin: 55px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-weight: 600;
-  font-size: 12px;
+  font-size: $small-font-size;
   text-transform: uppercase;
   .column {
     .nav {
