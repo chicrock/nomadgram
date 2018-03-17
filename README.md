@@ -370,3 +370,6 @@ class ReactAppView(View):
 </code></pre>
 
 *   Make ReactotronConfig.js file on src
+
+<pre><code># Add redux devtools extension for chrome extension
+]$ yarn add redux-devtools-extension --dev</code></pre>

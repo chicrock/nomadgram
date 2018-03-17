@@ -2,9 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { routerReducer, RouterMiddleware, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import users from 'redux/modules/users';
 
-import Reactotron from 'ReactotronConfig';
+//import Reactotron from 'ReactotronConfig';
 
 /// need to use in store is this environment is development or not
 const env = process.env.NODE_ENV;
@@ -26,7 +27,8 @@ const reducer = combineReducers({
 let store;
 
 if (env === 'development') {
-    store = initialState => Reactotron.createStore(reducer, applyMiddleware(...middlewares));
+    //store = initialState => Reactotron.createStore(reducer, composeWithDevTools(applyMiddleware(...middlewares)));
+    store = initialState => createStore(reducer, composeWithDevTools(applyMiddleware(...middlewares)));
 } else {
     store = initialState => createStore(reducer, applyMiddleware(...middlewares));
 }
