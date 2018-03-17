@@ -376,3 +376,6 @@ class ReactAppView(View):
 
 <pre><code># Add i18n for multi language
 ]$ yarn add redux-i18n</code></pre>
+
+<pre><code># Add reset-css modules for reset all browsers default styles
+]$ yarn add reset-css</code></pre>

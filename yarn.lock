@@ -2,6 +2,6 @@
 # yarn lockfile v1
 
 
-redux-devtools-extension@^2.13.2:
-  version "2.13.2"
-  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.2.tgz#e0f9a8e8dfca7c17be92c7124958a3b94eb2911d"
+reset-css@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/reset-css/-/reset-css-3.0.0.tgz#9b421d34fefc6e5d5b915ee7bfd72b1bc19cfbb0"
