@@ -346,7 +346,7 @@ class ReactAppView(View):
 <pre><code># Install redux-logger in devDependencies
 ]$ yarn add redux-logger --dev</code></pre>
 
-### React Router
+### DEV tools
 
 <pre><code># Install react-router-dom
 ]$ yarn add react-router-dom react-router-redux@next history </code></pre>
@@ -374,8 +374,12 @@ class ReactAppView(View):
 <pre><code># Add redux devtools extension for chrome extension
 ]$ yarn add redux-devtools-extension --dev</code></pre>
 
+### Language and style setup
+
 <pre><code># Add i18n for multi language
 ]$ yarn add redux-i18n</code></pre>
 
 <pre><code># Add reset-css modules for reset all browsers default styles
 ]$ yarn add reset-css</code></pre>
+
+*   I can get the font from google fonts.[Google fonts](https://fonts.google.com)
