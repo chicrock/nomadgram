@@ -373,3 +373,6 @@ class ReactAppView(View):
 
 <pre><code># Add redux devtools extension for chrome extension
 ]$ yarn add redux-devtools-extension --dev</code></pre>
+
+<pre><code># Add i18n for multi language
+]$ yarn add redux-i18n</code></pre>
