@@ -393,3 +393,8 @@ class ReactAppView(View):
 > Container : Logic(API Request, errors, etc...)
 >
 > Presenter : No Logic, Only UI
+
+### Development View
+
+<pre><code># Add react ionicons
+]$ yarn add react-ionicons</code></pre>
