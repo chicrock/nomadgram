@@ -383,3 +383,13 @@ class ReactAppView(View):
 ]$ yarn add reset-css</code></pre>
 
 *   I can get the font from google fonts.[Google fonts](https://fonts.google.com)
+
+### React design patterns
+
+*   See [React Component Patterns](https://levelup.gitconnected.com/react-component-patterns-ab1f09be2c82)
+
+*   Container + Presenter patterns
+
+> Container : Logic(API Request, errors, etc...)
+>
+> Presenter : No Logic, Only UI
