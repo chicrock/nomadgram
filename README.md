@@ -398,3 +398,20 @@ class ReactAppView(View):
 
 <pre><code># Add react ionicons
 ]$ yarn add react-ionicons</code></pre>
+
+*   Create Translation files
+
+<pre><code># For create translation files Add belows to scripts variables in package.json files
+    "extract": "i18n_extract",
+    "import": "i18n_import --encoding=utf-8"
+# And Use yarn extract to create .pot file
+# Create ko.po in locales and put the content from .pot files and translate.
+# Include belows in the header of ko.po file.
+
+    msgid ""
+    msgstr ""
+    "Language: ko"
+
+]$ yarn run import
+
+</code></pre>

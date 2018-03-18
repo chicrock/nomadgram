@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"Language: ko"
+
+#: src/components/Auth/presenter.js
+msgid "Checkout our app. Is cool"
+msgstr "어플리케이션을 확인 하세요"
+
+#: src/components/Auth/presenter.js
+msgid "Logo"
+msgstr "로고"
+
+#: src/components/Auth/presenter.js
+msgid "Don't have an account?"
+msgstr "아직 계정이 없으신가요?"
+
+#: src/components/Auth/presenter.js
+#: src/components/AuthForms/index.js
+msgid "Sign up"
+msgstr "회원가입"
+
+#: src/components/Auth/presenter.js
+msgid "Have an account?"
+msgstr "이미 계정이 있으신가요"
+
+#: src/components/Auth/presenter.js
+#: src/components/AuthForms/index.js
+msgid "Log in"
+msgstr "로그인"
+
+#: src/components/Auth/presenter.js
+msgid "Get the App"
+msgstr "앱 다운받기"
+
+#: src/components/Auth/presenter.js
+msgid "Download it on the Apple Appstore"
+msgstr "애플 스토어에서 다운받기"
+
+#: src/components/Auth/presenter.js
+msgid "Download it on the Google Playstore"
+msgstr "구글 플래이스토어에서 다운받기"
+
+#: src/components/AuthForms/index.js
+msgid "Username"
+msgstr "사용자 이름"
+
+#: src/components/AuthForms/index.js
+msgid "Password"
+msgstr "비밀번호"
+
+#: src/components/AuthForms/index.js
+msgid "Log in with Facebook"
+msgstr "페이스북으로 로그인하기"
+
+#: src/components/AuthForms/index.js
+msgid "Forgot password?"
+msgstr "비밀번호 찾기"
+
+#: src/components/AuthForms/index.js
+msgid "Sign up to see photos and videos from your friends."
+msgstr "회원가입하고 친구들의 사진과 동영상을 보세요"
+
+#: src/components/AuthForms/index.js
+msgid "or"
+msgstr "또는"
+
+#: src/components/AuthForms/index.js
+msgid "Email"
+msgstr "이메일"
+
+#: src/components/AuthForms/index.js
+msgid "Full Name"
+msgstr "이름"
+
+#: src/components/AuthForms/index.js
+msgid "By signing up, you agree to our"
+msgstr "회원가입할때 동의 하십니까?"
+
+#: src/components/AuthForms/index.js
+msgid "Terms & Privacy Policy"
+msgstr "약관과 정보 보호 정책"
+
+#: src/components/Footer/index.js
+msgid "About Us"
+msgstr "Nomadgram 정보"
+
+#: src/components/Footer/index.js
+msgid "Support"
+msgstr "지원"
+
+#: src/components/Footer/index.js
+msgid "Blog"
+msgstr "블로그"
+
+#: src/components/Footer/index.js
+msgid "Press"
+msgstr "홍보 센터"
+
+#: src/components/Footer/index.js
+msgid "API"
+msgstr "API"
+
+#: src/components/Footer/index.js
+msgid "Jobs"
+msgstr "채용 정보"
+
+#: src/components/Footer/index.js
+msgid "Privacy"
+msgstr "개인정보 처리방침"
+
+#: src/components/Footer/index.js
+msgid "Terms"
+msgstr "약관"
+
+#: src/components/Footer/index.js
+msgid "Directory"
+msgstr "디렉토리"
+
+#: src/components/Footer/index.js
+msgid "Hashtag"
+msgstr "해쉬태그"
+
+#: src/components/Footer/index.js
+msgid "Language"
+msgstr "언어"
+
