@@ -413,5 +413,17 @@ class ReactAppView(View):
     "Language: ko"
 
 ]$ yarn run import
-
 </code></pre>
+
+### Social login
+
+*   [React Facebook Login](https://www.npmjs.com/package/react-google-login)
+
+*   [React Google Login](https://www.npmjs.com/package/react-google-login)
+
+<pre><code># Add react-facebook-login
+]$ yarn add react-facebook-login </code></pre>
+
+*   [Get Fontawesome icons for Facebook Login](https://fontawesome.com/icons)
+
+*   Add APP URL to 'localhost' in basic settings on facebook development page

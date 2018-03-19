@@ -12,6 +12,7 @@ class Container extends Component {
             <LoginForm
                 handleInputChange={this._handleInputChange}
                 handleSubmit={this._handleSubmit}
+                handleFacebookLogin={this._handleFacebookLogin}
                 usernameValue={username}
                 passwordValue={password}
             />
@@ -27,6 +28,9 @@ class Container extends Component {
         event.preventDefault();
         // redux actions will be here
         console.log(this.state);
+    };
+    _handleFacebookLogin = response => {
+        console.log(response);
     };
 }
 
