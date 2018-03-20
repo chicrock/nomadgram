@@ -16,7 +16,7 @@ export const SignupForm = (props, context) => (
             textButton={context.t('Log in with Facebook')}
         />
         <span className={formStyles.divider}>{context.t('or')}</span>
-        <form className={formStyles.form} onSubmit={props.handleSubmit}>
+        <form className={formStyles.form} onSubmit={props.handleSubmit} method="POST">
             <input
                 type="email"
                 placeholder={context.t('Email')}
