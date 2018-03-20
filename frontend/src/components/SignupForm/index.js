@@ -10,4 +10,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
 };
 
+/// attach function to props
 export default connect(null, mapDispatchToProps)(Container);
