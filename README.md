@@ -101,6 +101,14 @@ django-admin startapp images</code>
 <pre><code>Get tokens from /api-token-auth/
 After, Request others with Header having Authrization: JWT [TOKENS]</code></pre>
 
+*   Add config array below on bottom of config/settings/base.py
+    *   See [Django jwt auth](https://github.com/jpadilla/django-jwt-auth)
+
+<pre><code># Setting no jwt token expiration
+JWT_AUTH = {
+    'JWT_VERIFY_EXPIRATION': False
+}</code></pre>
+
 *   [Django Taggit Rest Serializer](https://github.com/glemmaPaul/django-taggit-serializer)
 
 <pre><code>]$ pipenv install django-taggit-serializer</code></pre>
@@ -340,6 +348,7 @@ class ReactAppView(View):
 *   Django middlewares are between request and server.
 
 *   Redux middlewares are between react app and store(send actions to our redux store)
+    *   See [Redux thunk](https://github.com/gaearon/redux-thunk)
 
 <pre><code>]$ yarn add redux-thunk</code></pre>
 
