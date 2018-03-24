@@ -439,4 +439,6 @@ class ReactAppView(View):
 
 ### Login with username
 
-* See [Tivix django-rest-auth](https://github.com/Tivix/django-rest-auth)
+*   See [Tivix django-rest-auth](https://github.com/Tivix/django-rest-auth)
+
+*   [django-rest-auth Document](http://django-rest-auth.readthedocs.io/en/latest/api_endpoints.html)

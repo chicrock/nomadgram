@@ -9,7 +9,7 @@ class AccountAdapter(DefaultAccountAdapter):
 
     def save_user(self, request, user, form):
         if len(user.socialaccount_set.all()) == 0:
-            name = request.data.get('fullname', None)
+            name = request.data.get('name', None)
             email = request.data.get('email', None)
             username = request.data.get('username', None)
             password1 = request.data.get('password1', None)
