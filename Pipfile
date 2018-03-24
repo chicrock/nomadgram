@@ -40,6 +40,7 @@ djangorestframework-jwt = "*"
 django-taggit-serializer = "*"
 django-rest-auth = "*"
 django-cors-headers = "*"
+"psycopg2-binary" = "*"
 
 
 [dev-packages]

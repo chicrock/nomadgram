@@ -436,3 +436,7 @@ class ReactAppView(View):
 *   [Get Fontawesome icons for Facebook Login](https://fontawesome.com/icons)
 
 *   Add APP URL to 'localhost' in basic settings on facebook development page
+
+### Login with username
+
+* See [Tivix django-rest-auth](https://github.com/Tivix/django-rest-auth)
