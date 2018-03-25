@@ -55,7 +55,6 @@ generate Pipfile in this folder. share this file for sharing there developement 
 <pre><code>]$ pipenv install -r requirements/local.txt</code></pre>
 
 *   setup database config on /config/settings/base.py (DATABASE CONFIGURATION)
-
 *   create images app
 
 <pre>
@@ -114,20 +113,15 @@ JWT_AUTH = {
 <pre><code>]$ pipenv install django-taggit-serializer</code></pre>
 
 *   [Django Rest Auth on Github](https://github.com/Tivix/django-rest-auth)
-
 *   [Django Rest Auth Documentation(Can find about social auth)](http://django-rest-auth.readthedocs.io/en/latest/)
 
 <pre><code>]$ pipenv install django-rest-auth
 ]$ python manage.py migrate</code></pre>
 
 *   [Facebook Developers](https://developers.facebook.com/)
-
 *   [Get your access token for testing](https://developers.facebook.com/tools/accesstoken/)
-
 *   [Google login with allauth](http://django-allauth.readthedocs.io/en/latest/providers.html#google)
-
 *   [Google api console](https://console.developers.google.com/apis)
-
 *   [Get google access token for testing](https://developers.google.com/oauthplayground/)
 
 > Add Social application in admin page
@@ -140,7 +134,6 @@ JWT_AUTH = {
 <pre><code>class Cat(models.Model):</code></pre>
 
 *   lookup can using in filter like this <code>.objects.filter(name\_\_startswith="Mr")</code>
-
 *   lookup options<br>
 
 > startswith<br>
@@ -158,9 +151,7 @@ do migration
 </pre>
 
 *   [django models](https://docs.djangoproject.com/en/1.11/topics/db/models/)
-
 *   [django models field](https://docs.djangoproject.com/en/1.11/ref/models/fields/)
-
 *   [django admin document](https://docs.djangoproject.com/en/1.11/ref/contrib/admin/)
 
 *   Meta class internal model class is explains all the possible metadata options<br>
@@ -219,9 +210,7 @@ DELETE /owners/nicolas/dogs -> Delete all of Nicolas's dogs.
 ## postgreSQL
 
 *   Download from https://postgresapp.com/ on mac
-
 *   Download from https://www.pgadmin.org/download/ on linux or windows
-
 *   make database
 
 <pre><code>CREATE DATABASE nomadgram;</code></pre>
@@ -229,9 +218,7 @@ DELETE /owners/nicolas/dogs -> Delete all of Nicolas's dogs.
 ## Regular Expressions
 
 *   [Test Regular Expressions](https://regex101.com/)
-
 *   [Introduction to Regular Expressions](https://regexone.com/)
-
 *   See [Django URL Dispatcher](https://docs.djangoproject.com/en/2.0/topics/http/urls/) for more about Django urls
 
 ## Create Reactjs
@@ -253,7 +240,6 @@ DELETE /owners/nicolas/dogs -> Delete all of Nicolas's dogs.
 ]$ yarn eject</code></pre>
 
 *   After eject need to install modules about sass
-
 *   webpack load loaders bottom to top
 
 > It means load
@@ -346,7 +332,6 @@ class ReactAppView(View):
 ]$ yarn add redux react-redux</code></pre>
 
 *   Django middlewares are between request and server.
-
 *   Redux middlewares are between react app and store(send actions to our redux store)
     *   See [Redux thunk](https://github.com/gaearon/redux-thunk)
 
@@ -363,9 +348,7 @@ class ReactAppView(View):
 ### Reactotron (dev environment)
 
 *   App for Inspecting ReactJS and React Native apps
-
 *   See [Reactotron](https://github.com/infinitered/reactotron)
-
 *   Download from [Reactotron Download](https://github.com/infinitered/reactotron/blob/master/docs/installing.md)
 
 <pre><code># Install Reactotron
@@ -396,7 +379,6 @@ class ReactAppView(View):
 ### React design patterns
 
 *   See [React Component Patterns](https://levelup.gitconnected.com/react-component-patterns-ab1f09be2c82)
-
 *   Container + Presenter patterns
 
 > Container : Logic(API Request, errors, etc...)
@@ -427,18 +409,20 @@ class ReactAppView(View):
 ### Social login
 
 *   [React Facebook Login](https://www.npmjs.com/package/react-google-login)
-
 *   [React Google Login](https://www.npmjs.com/package/react-google-login)
 
 <pre><code># Add react-facebook-login
 ]$ yarn add react-facebook-login </code></pre>
 
 *   [Get Fontawesome icons for Facebook Login](https://fontawesome.com/icons)
-
 *   Add APP URL to 'localhost' in basic settings on facebook development page
 
 ### Login with username
 
 *   See [Tivix django-rest-auth](https://github.com/Tivix/django-rest-auth)
-
 *   [django-rest-auth Document](http://django-rest-auth.readthedocs.io/en/latest/api_endpoints.html)
+
+### Block update bug
+
+*   Block update : Component didn't rendering again.
+*   Add location to props for re-rendering
