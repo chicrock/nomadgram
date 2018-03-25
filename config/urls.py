@@ -23,13 +23,14 @@ urlpatterns = [
         include('nomadgram.notifications.urls', namespace='notifications')),
     url(r'^accounts/', include('allauth.urls')),
 
-    # cannot found any urls in django then load ReactAppViews
-    url(r'^', views.ReactAppView.as_view()),
-
     # Your stuff: custom urls includes go here
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += [
+    url(r'^', views.ReactAppView.as_view()),
+]
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
