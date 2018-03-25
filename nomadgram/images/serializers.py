@@ -75,6 +75,7 @@ class ImageSerializer(TaggitSerializer, serializers.ModelSerializer):
         # fields = '__all__'
         fields = (
             'id',
+            'file',
             'location',
             'caption',
             'comments',
