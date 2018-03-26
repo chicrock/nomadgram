@@ -207,6 +207,10 @@ DELETE /owners/nicolas/dogs -> Delete all of Nicolas's dogs.
 
 *   Test with Postman
 
+### Django humanize for data formatting
+
+*   See [Django Humanize Site](https://docs.djangoproject.com/en/1.11/ref/contrib/humanize)
+
 ## postgreSQL
 
 *   Download from https://postgresapp.com/ on mac
