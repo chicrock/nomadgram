@@ -21,7 +21,7 @@ const FeedPhoto = (props, context) => {
                 </div>
             </header>
             <img src={props.file} alt={props.caption} />
-            <div>
+            <div className={styles.meta}>
                 <PhotoActions number={props.like_count} />
                 <PhotoComments comments={props.comments} caption={props.caption} creator={props.creator.username} />
                 <TimeStamp time={props.natural_time} />
