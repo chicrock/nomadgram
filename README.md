@@ -430,3 +430,9 @@ class ReactAppView(View):
 
 *   Block update : Component didn't rendering again.
 *   Add location to props for re-rendering
+
+### textarea autosizing
+
+```bash
+]$ yarn add react-textarea-autosize
+```
