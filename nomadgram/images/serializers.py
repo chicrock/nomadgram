@@ -1,5 +1,8 @@
 from rest_framework import serializers
+from django.core.exceptions import ObjectDoesNotExist
+
 from . import models
+
 from nomadgram.users import models as user_models
 
 from taggit_serializer.serializers import (
@@ -69,6 +72,7 @@ class ImageSerializer(TaggitSerializer, serializers.ModelSerializer):
     # likes = LikeSerializer(many=True)
     creator = FeedUserSerializer()
     tags = TagListSerializerField()
+    is_liked = serializers.SerializerMethodField()
 
     class Meta:
         model = models.Image
@@ -84,7 +88,19 @@ class ImageSerializer(TaggitSerializer, serializers.ModelSerializer):
             'tags',
             'natural_time',
             'updated_on',
+            'is_liked',
         )
+
+    def get_is_liked(self, obj):
+        if 'request' in self.context:
+            request = self.context['request']
+            try:
+                models.Like.objects.get(creator=request.user, image__id=obj.id)
+                return True
+            except ObjectDoesNotExist:
+                return False
+
+        return False
 
 
 class InputImageSerializer(serializers.ModelSerializer):
