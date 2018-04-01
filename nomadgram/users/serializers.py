@@ -9,6 +9,8 @@ from nomadgram.images import serializers as images_serializers
 
 class ListUserSerializer(serializers.ModelSerializer):
 
+    following = serializers.SerializerMethodField()
+
     class Meta:
         model = models.User
         fields = (
@@ -16,7 +18,20 @@ class ListUserSerializer(serializers.ModelSerializer):
             'username',
             'profile_image',
             'name',
+            'following'
         )
+
+    def get_following(self, obj):
+        if 'request' in self.context:
+            request = self.context['request']
+
+            if obj in request.user.following.all():
+                return True
+
+            if obj.id == request.user.id:
+                return True
+
+        return False
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
