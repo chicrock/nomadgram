@@ -5,6 +5,7 @@ import PhotoActions from 'components/PhotoActions';
 import PhotoComments from 'components/PhotoComments';
 import TimeStamp from 'components/TimeStamp';
 import CommentBox from 'components/CommentBox';
+import UserList from 'components/UserList';
 
 const FeedPhoto = (props, context) => {
     return (
@@ -22,16 +23,26 @@ const FeedPhoto = (props, context) => {
             </header>
             <img src={props.file} alt={props.caption} />
             <div className={styles.meta}>
-                <PhotoActions number={props.like_count} isLiked={props.is_liked} photoId={props.id} />
+                <PhotoActions
+                    number={props.like_count}
+                    isLiked={props.is_liked}
+                    photoId={props.id}
+                    openLikes={props.openLikes}
+                />
                 <PhotoComments comments={props.comments} caption={props.caption} creator={props.creator.username} />
                 <TimeStamp time={props.natural_time} />
                 <CommentBox photoId={props.id} />
             </div>
+            {props.seeingLikes && <UserList title={context.t('Likes')} closeLikes={props.closeLikes} />}
         </div>
     );
 };
 
-FeedPhoto.propsTypes = {
+FeedPhoto.contextTypes = {
+    t: PropTypes.func.isRequired,
+};
+
+FeedPhoto.propTypes = {
     creator: PropTypes.shape({
         profile_image: PropTypes.string,
         username: PropTypes.string.isRequired,
@@ -40,7 +51,7 @@ FeedPhoto.propsTypes = {
     file: PropTypes.string.isRequired,
     like_count: PropTypes.number.isRequired,
     caption: PropTypes.string.isRequired,
-    comment: PropTypes.arrayOf(
+    comments: PropTypes.arrayOf(
         PropTypes.shape({
             message: PropTypes.string.isRequired,
             creator: PropTypes.shape({
@@ -51,6 +62,9 @@ FeedPhoto.propsTypes = {
     ).isRequired,
     natural_time: PropTypes.string.isRequired,
     is_liked: PropTypes.bool.isRequired,
+    seeingLikes: PropTypes.bool.isRequired,
+    closeLikes: PropTypes.func.isRequired,
+    openLikes: PropTypes.func.isRequired,
 };
 
 export default FeedPhoto;
