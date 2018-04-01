@@ -33,8 +33,10 @@ UserDisplay.propTypes = {
         profile_image: PropTypes.string,
         username: PropTypes.string.isRequired,
         name: PropTypes.string,
+        following: PropTypes.bool.isRequired,
     }).isRequired,
     big: PropTypes.bool,
+    handleClick: PropTypes.func.isRequired,
     horizontal: PropTypes.bool,
     vertical: PropTypes.bool,
 };
