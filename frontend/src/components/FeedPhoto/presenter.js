@@ -25,7 +25,7 @@ const FeedPhoto = (props, context) => {
                 <PhotoActions number={props.like_count} isLiked={props.is_liked} photoId={props.id} />
                 <PhotoComments comments={props.comments} caption={props.caption} creator={props.creator.username} />
                 <TimeStamp time={props.natural_time} />
-                <CommentBox />
+                <CommentBox photoId={props.id} />
             </div>
         </div>
     );
