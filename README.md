@@ -436,3 +436,11 @@ class ReactAppView(View):
 ```bash
 ]$ yarn add react-textarea-autosize
 ```
+
+### optimistic update
+
+*   It's all for UX
+
+1.  update user interface first.
+2.  update data for api.
+3.  If there were error on api update, then rollback user interface.
