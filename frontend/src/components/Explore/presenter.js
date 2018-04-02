@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './styles.scss';
-import Loading from 'components/Loading';
-import UserRow from 'components/UserRow';
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./styles.scss";
+import Loading from "components/Loading";
+import UserDisplay from "components/UserDisplay";
 
-const Explore = props => {
+const Explore = (props) => {
     if (props.loading) {
         return <LoadingExplore />;
     } else if (props.userList) {
@@ -12,15 +12,22 @@ const Explore = props => {
     }
 };
 
-const LoadingExplore = props => (
+const LoadingExplore = (props) => (
     <div className={styles.explore}>
         <Loading />
     </div>
 );
 
-const RenderExplore = props => (
+const RenderExplore = (props) => (
     <div className={styles.explore}>
-        {props.userList.map(user => <UserRow horizontal={true} big={true} user={user} key={user.id} />)}
+        {props.userList.map((user) => (
+            <UserDisplay
+                horizontal={true}
+                big={true}
+                user={user}
+                key={user.id}
+            />
+        ))}
     </div>
 );
 

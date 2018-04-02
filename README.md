@@ -444,3 +444,17 @@ class ReactAppView(View):
 1.  update user interface first.
 2.  update data for api.
 3.  If there were error on api update, then rollback user interface.
+
+### componentDidUpdate
+
+*   When using componentDidUpdate, must watch out the infinite loop
+*   Must check prev props and this props
+
+```javascript
+componentDidUpdate = (prevProps, prevState) => {
+    const { searchByTerm } = this.props;
+    if (prevProps.match.params !== this.props.match.params) {
+        searchByTerm();
+    }
+};
+```
