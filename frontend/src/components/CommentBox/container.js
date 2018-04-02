@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import CommentBox from './presenter';
+import React, { Component } from "react";
+import CommentBox from "./presenter";
 
 class Container extends Component {
     state = {
-        comment: '',
+        comment: ""
     };
     render() {
         return (
@@ -16,23 +16,23 @@ class Container extends Component {
         );
     }
 
-    _handleInputChange = event => {
+    _handleInputChange = (event) => {
         const { target: { value } } = event;
         this.setState({
-            comment: value,
+            comment: value
         });
     };
 
-    _handleKeyPress = event => {
+    _handleKeyPress = (event) => {
         const { key } = event;
         const { submitComment } = this.props;
         const { comment } = this.state;
 
-        if (key === 'Enter') {
+        if (key === "Enter") {
             event.preventDefault();
             submitComment(comment);
             this.setState({
-                comment: '',
+                comment: ""
             });
         }
     };
