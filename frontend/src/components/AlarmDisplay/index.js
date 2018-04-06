@@ -1,15 +1,17 @@
 import { connect } from "react-redux";
 import Container from "./container";
-import { push } from "react-router-redux";
 import { actionCreators as userActions } from "redux/modules/user";
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+    const { alarm } = ownProps;
     return {
-        goToSearch: (searchTerm) => {
-            dispatch(push(`/search/${searchTerm}`));
-        },
-        getUserAlarms: () => {
-            dispatch(userActions.getUserAlarms());
+        handleClick: () => {
+            //dispatch(userActions);
+            if (alarm.creator.following) {
+                dispatch(userActions.unfollowUser(alarm.creator.id));
+            } else {
+                dispatch(userActions.followUser(alarm.creator.id));
+            }
         },
     };
 };

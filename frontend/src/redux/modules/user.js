@@ -5,6 +5,7 @@
 const SAVE_TOKEN = "SAVE_TOKEN";
 const LOGOUT = "LOGOUT";
 const SET_USER_LIST = "SET_USER_LIST";
+const SET_ALARM_LIST = "SET_ALARM_LIST";
 const FOLLOW_USER = "FOLLOW_USER";
 const UNFOLLOW_USER = "UNFOLLOW_USER";
 const SET_IMAGE_LIST = "SET_IMAGE_LIST";
@@ -28,6 +29,13 @@ function setUserList(userList) {
     return {
         type: SET_USER_LIST,
         userList,
+    };
+}
+
+function setAlarmList(alarmList) {
+    return {
+        type: SET_ALARM_LIST,
+        alarmList,
     };
 }
 
@@ -141,6 +149,30 @@ function getPhotoLikes(photoId) {
             })
             .then((json) => {
                 dispatch(setUserList(json));
+            })
+            .catch((err) => console.log(err));
+    };
+}
+
+function getUserAlarms() {
+    return function(dispatch, getState) {
+        const { user: { token } } = getState();
+
+        fetch(`/notifications/`, {
+            method: "GET",
+            headers: {
+                Authorization: `JWT ${token}`,
+            },
+        })
+            .then((response) => {
+                if (response.status === 401) {
+                    dispatch(logout());
+                }
+
+                return response.json();
+            })
+            .then((json) => {
+                dispatch(setAlarmList(json));
             })
             .catch((err) => console.log(err));
     };
@@ -272,6 +304,8 @@ function reducer(state = initialState, action) {
             return applyLogout(state, action);
         case SET_USER_LIST:
             return applySetUserList(state, action);
+        case SET_ALARM_LIST:
+            return applySetAlarmList(state, action);
         case FOLLOW_USER:
             return applyFollowUser(state, action);
         case UNFOLLOW_USER:
@@ -309,6 +343,15 @@ function applySetUserList(state, action) {
     return {
         ...state,
         userList,
+    };
+}
+
+function applySetAlarmList(state, action) {
+    const { alarmList } = action;
+
+    return {
+        ...state,
+        alarmList,
     };
 }
 
@@ -358,6 +401,7 @@ const actionCreators = {
     createAccount,
     logout,
     getPhotoLikes,
+    getUserAlarms,
     followUser,
     unfollowUser,
     getExplore,

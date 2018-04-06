@@ -52,7 +52,7 @@ class Image(TimeStampedModel):
         return naturaltime(self.created_on)
 
     def __str__(self):
-        return '{} - {}'.format(self.location, self.caption)
+        return '{} - {} ({})'.format(self.location, self.caption, self.creator.username)
 
     class Meta:
         ordering = ['-created_on']

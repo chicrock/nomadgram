@@ -4,10 +4,11 @@ import PropTypes from "prop-types";
 
 class Container extends Component {
     state = {
-        term: ""
+        term: "",
+        seeingAlarms: false,
     };
     static propTypes = {
-        goToSearch: PropTypes.func.isRequired
+        goToSearch: PropTypes.func.isRequired,
     };
     render() {
         return (
@@ -15,6 +16,9 @@ class Container extends Component {
                 value={this.state.term}
                 onInputChange={this._onInputChange}
                 onSubmit={this._onSubmit}
+                openAlarms={this._openAlarms}
+                closeAlarms={this._closeAlarms}
+                seeingAlarms={this.state.seeingAlarms}
             />
         );
     }
@@ -22,7 +26,7 @@ class Container extends Component {
     _onInputChange = (event) => {
         const { target: { value } } = event;
         this.setState({
-            term: value
+            term: value,
         });
     };
 
@@ -34,7 +38,22 @@ class Container extends Component {
         goToSearch(term);
 
         this.setState({
-            term: ""
+            term: "",
+        });
+    };
+
+    _openAlarms = (event) => {
+        const { getUserAlarms } = this.props;
+        this.setState({
+            seeingAlarms: true,
+        });
+
+        getUserAlarms();
+    };
+
+    _closeAlarms = () => {
+        this.setState({
+            seeingAlarms: false,
         });
     };
 }
