@@ -25,11 +25,10 @@ const UserList = (props) => (
     </div>
 );
 
-const RenderUsers = (props) => {
+const RenderUsers = (props) =>
     props.list.map((user) => (
         <UserDisplay horizontal={true} user={user} key={user.id} />
     ));
-};
 
 RenderUsers.propTypes = {
     list: PropTypes.array,
