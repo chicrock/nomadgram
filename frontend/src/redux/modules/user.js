@@ -9,6 +9,7 @@ const SET_ALARM_LIST = "SET_ALARM_LIST";
 const FOLLOW_USER = "FOLLOW_USER";
 const UNFOLLOW_USER = "UNFOLLOW_USER";
 const SET_IMAGE_LIST = "SET_IMAGE_LIST";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 /// action creator
 
@@ -29,6 +30,13 @@ function setUserList(userList) {
     return {
         type: SET_USER_LIST,
         userList,
+    };
+}
+
+function setUserProfile(userProfile) {
+    return {
+        type: SET_USER_PROFILE,
+        userProfile,
     };
 }
 
@@ -289,6 +297,10 @@ function searchImages(token, searchTerm) {
         .then((json) => json);
 }
 
+function getUserProfile() {
+    return {};
+}
+
 /// initial state
 
 const initialState = {
@@ -314,6 +326,8 @@ function reducer(state = initialState, action) {
             return applyUnfollowUser(state, action);
         case SET_IMAGE_LIST:
             return applySetImageList(state, action);
+        case SET_USER_PROFILE:
+            return applySetUserProfile(state, action);
         default:
             return state;
     }
@@ -433,6 +447,14 @@ function applySetImageList(state, action) {
     };
 }
 
+function applySetUserProfile(state, action) {
+    const { userProfile } = action;
+    return {
+        ...state,
+        userProfile,
+    };
+}
+
 /// exports
 
 const actionCreators = {
@@ -446,6 +468,7 @@ const actionCreators = {
     unfollowUser,
     getExplore,
     searchByTerm,
+    getUserProfile,
 };
 
 export { actionCreators };
