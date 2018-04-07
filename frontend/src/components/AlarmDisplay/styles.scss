@@ -18,13 +18,14 @@
     align-items: center;
     .user {
       margin-left: 10px;
+      display: flex;
       .username {
         font-weight: 600;
-        display: block;
         margin-bottom: 3px;
       }
       .name {
         color: $dark-grey;
+        margin-left: 5px;
       }
     }
     .bigAvatar {
@@ -37,6 +38,11 @@
     }
     .button {
       @include blueButton();
+    }
+    .image {
+      width: 40px;
+      height: 40px;
+      border: 1px solid $light-grey;
     }
   }
 }

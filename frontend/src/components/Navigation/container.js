@@ -45,10 +45,12 @@ class Container extends Component {
     _openAlarms = (event) => {
         const { getUserAlarms } = this.props;
         this.setState({
-            seeingAlarms: true,
+            seeingAlarms: !this.state.seeingAlarms,
         });
 
-        getUserAlarms();
+        if (this.state.seeingAlarms === false) {
+            getUserAlarms();
+        }
     };
 
     _closeAlarms = () => {

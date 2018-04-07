@@ -1,19 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./styles.scss";
-import Ionicon from "react-ionicons";
 import Loading from "components/Loading";
 import AlarmDisplay from "components/AlarmDisplay";
 
 const AlarmList = (props) => (
     <div className={styles.container}>
         <div className={styles.box}>
-            <header className={styles.header}>
-                <h4 className={styles.title}>{props.title}</h4>
-                <span onClick={props.closeAlarms}>
-                    <Ionicon icon="md-close" fontSize="20px" color="black" />
-                </span>
-            </header>
             <div className={styles.content}>
                 {props.loading ? (
                     <Loading />

@@ -17,18 +17,58 @@ const AlarmDisplay = (props, context) => (
                 <span className={styles.username}>
                     {props.alarm.creator.username}
                 </span>
-                <span className={styles.name}>{props.alarm.creator.name}</span>
+                <span className={styles.name}>
+                    {(() => {
+                        switch (props.alarm.notification_type) {
+                            case "follow":
+                                return context.t("was following you");
+                            case "like":
+                                return context.t("was like your photo");
+                            case "comment":
+                                return context.t("was comment your photo");
+                            default:
+                                return context.t("was something do for you");
+                        }
+                    })()}
+                </span>
             </div>
         </div>
-        <span className={styles.column}>
-            <button className={styles.button} onClick={props.handleClick}>
-                {props.alarm.creator.following
-                    ? context.t("Unfollow")
-                    : context.t("Follow")}
-            </button>
-        </span>
+        {props.alarm.notification_type === "follow" ? (
+            <RenderFollows
+                isFollowing={props.alarm.creator.following}
+                handleClick={props.handleClick}
+            />
+        ) : (
+            <RenderPhotos file={props.alarm.image.file} />
+        )}
     </div>
 );
+
+const RenderPhotos = (props) => (
+    <span className={styles.column}>
+        <img className={styles.image} src={props.file} alt={""} />
+    </span>
+);
+
+const RenderFollows = (props, context) => (
+    <span className={styles.column}>
+        <button className={styles.button} onClick={props.handleClick}>
+            {props.isFollowing ? context.t("Unfollow") : context.t("Follow")}
+        </button>
+    </span>
+);
+
+RenderPhotos.propTypes = {
+    file: PropTypes.string.isRequired,
+};
+
+RenderFollows.contextTypes = {
+    t: PropTypes.func.isRequired,
+};
+RenderFollows.propTypes = {
+    handleClick: PropTypes.func.isRequired,
+    isFollowing: PropTypes.bool.isRequired,
+};
 
 AlarmDisplay.contextTypes = {
     t: PropTypes.func.isRequired,

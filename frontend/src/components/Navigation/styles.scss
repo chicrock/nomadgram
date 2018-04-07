@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 60px;
-  @include breakpoint('phone') {
+  @include breakpoint("phone") {
     margin-bottom: 0;
   }
   .inner {

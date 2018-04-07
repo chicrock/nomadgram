@@ -8,9 +8,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         handleClick: () => {
             //dispatch(userActions);
             if (alarm.creator.following) {
-                dispatch(userActions.unfollowUser(alarm.creator.id));
+                dispatch(userActions.unfollowUser(alarm.creator.id, true));
             } else {
-                dispatch(userActions.followUser(alarm.creator.id));
+                dispatch(userActions.followUser(alarm.creator.id, true));
             }
         },
     };

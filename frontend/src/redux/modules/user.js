@@ -39,17 +39,19 @@ function setAlarmList(alarmList) {
     };
 }
 
-function setFollowUser(userId) {
+function setFollowUser(userId, isAlarm) {
     return {
         type: FOLLOW_USER,
         userId,
+        isAlarm,
     };
 }
 
-function setUnfollowUser(userId) {
+function setUnfollowUser(userId, isAlarm) {
     return {
         type: UNFOLLOW_USER,
         userId,
+        isAlarm,
     };
 }
 
@@ -178,9 +180,9 @@ function getUserAlarms() {
     };
 }
 
-function followUser(userId) {
+function followUser(userId, isAlarm) {
     return (dispatch, getState) => {
-        dispatch(setFollowUser(userId));
+        dispatch(setFollowUser(userId, isAlarm));
 
         const { user: { token } } = getState();
 
@@ -193,15 +195,15 @@ function followUser(userId) {
             if (response.status === 401) {
                 dispatch(logout());
             } else if (!response.ok) {
-                dispatch(setUnfollowUser(userId));
+                dispatch(setUnfollowUser(userId, isAlarm));
             }
         });
     };
 }
 
-function unfollowUser(userId) {
+function unfollowUser(userId, isAlarm) {
     return (dispatch, getState) => {
-        dispatch(setUnfollowUser(userId));
+        dispatch(setUnfollowUser(userId, isAlarm));
 
         const { user: { token } } = getState();
 
@@ -214,7 +216,7 @@ function unfollowUser(userId) {
             if (response.status === 401) {
                 dispatch(logout());
             } else if (!response.ok) {
-                dispatch(setFollowUser(userId));
+                dispatch(setFollowUser(userId, isAlarm));
             }
         });
     };
@@ -357,32 +359,70 @@ function applySetAlarmList(state, action) {
 
 function applyFollowUser(state, action) {
     const { userId } = action;
-    const { userList } = state;
-    const updatedUserList = userList.map((user) => {
-        if (user.id === userId) {
-            return { ...user, following: true };
-        }
-        return user;
-    });
-    return {
-        ...state,
-        userList: updatedUserList,
-    };
+    const { isAlarm } = action;
+
+    if (isAlarm === true) {
+        const { alarmList } = state;
+        const updatedAlarmList = alarmList.map((alarm) => {
+            if (alarm.creator.id === userId) {
+                return {
+                    ...alarm,
+                    creator: { ...alarm.creator, following: true },
+                };
+            }
+            return alarm;
+        });
+        return {
+            ...state,
+            alarmList: updatedAlarmList,
+        };
+    } else {
+        const { userList } = state;
+        const updatedUserList = userList.map((user) => {
+            if (user.id === userId) {
+                return { ...user, following: true };
+            }
+            return user;
+        });
+        return {
+            ...state,
+            userList: updatedUserList,
+        };
+    }
 }
 
 function applyUnfollowUser(state, action) {
     const { userId } = action;
-    const { userList } = state;
-    const updatedUserList = userList.map((user) => {
-        if (user.id === userId) {
-            return { ...user, following: false };
-        }
-        return user;
-    });
-    return {
-        ...state,
-        userList: updatedUserList,
-    };
+    const { isAlarm } = action;
+
+    if (isAlarm === true) {
+        const { alarmList } = state;
+        const updatedAlarmList = alarmList.map((alarm) => {
+            if (alarm.creator.id === userId) {
+                return {
+                    ...alarm,
+                    creator: { ...alarm.creator, following: false },
+                };
+            }
+            return alarm;
+        });
+        return {
+            ...state,
+            alarmList: updatedAlarmList,
+        };
+    } else {
+        const { userList } = state;
+        const updatedUserList = userList.map((user) => {
+            if (user.id === userId) {
+                return { ...user, following: false };
+            }
+            return user;
+        });
+        return {
+            ...state,
+            userList: updatedUserList,
+        };
+    }
 }
 
 function applySetImageList(state, action) {
