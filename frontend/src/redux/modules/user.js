@@ -13,10 +13,11 @@ const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 /// action creator
 
-function saveToken(token) {
+function saveToken(token, username) {
     return {
         type: SAVE_TOKEN,
         token,
+        username,
     };
 }
 
@@ -86,7 +87,7 @@ function facebookLogin(access_token) {
             .then((response) => response.json())
             .then((json) => {
                 if (json.token) {
-                    dispatch(saveToken(json.token));
+                    dispatch(saveToken(json.token, json.user.username));
                 }
             })
             .catch((err) => console.log(err));
@@ -108,7 +109,7 @@ function usernameLogin(username, password) {
             .then((response) => response.json())
             .then((json) => {
                 if (json.token) {
-                    dispatch(saveToken(json.token));
+                    dispatch(saveToken(json.token, json.user.username));
                 }
             })
             .catch((err) => console.log(err));
@@ -133,7 +134,7 @@ function createAccount(username, password, email, name) {
             .then((response) => response.json())
             .then((json) => {
                 if (json.token) {
-                    dispatch(saveToken(json.token));
+                    dispatch(saveToken(json.token, json.user.username));
                 }
             })
             .catch((err) => console.log(err));
@@ -306,6 +307,7 @@ function getUserProfile() {
 const initialState = {
     isLoggedIn: localStorage.getItem("jwt") ? true : false,
     token: localStorage.getItem("jwt"),
+    username: localStorage.getItem("username"),
 };
 
 /// reducer
@@ -337,12 +339,16 @@ function reducer(state = initialState, action) {
 
 function applySetToken(state, action) {
     const { token } = action;
+    const { username } = action;
+
     localStorage.setItem("jwt", token);
+    localStorage.setItem("username", username);
 
     return {
         ...state,
         isLoggedIn: true,
         token,
+        username,
     };
 }
 
