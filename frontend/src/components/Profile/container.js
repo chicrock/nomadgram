@@ -7,6 +7,15 @@ class Container extends Component {
         loading: true,
     };
 
+    static propTypes = {
+        getUserProfile: PropTypes.func.isRequired,
+    };
+
+    componentDidMount() {
+        const { getUserProfile } = this.props;
+        getUserProfile();
+    }
+
     render() {
         return <Profile {...this.state} {...this.props} />;
     }

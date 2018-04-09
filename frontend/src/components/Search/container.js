@@ -15,6 +15,7 @@ class Container extends Component {
         const { searchByTerm } = this.props;
         searchByTerm();
     }
+
     componentDidUpdate = (prevProps, prevState) => {
         const { searchByTerm } = this.props;
         if (prevProps.match.params !== this.props.match.params) {

@@ -298,8 +298,27 @@ function searchImages(token, searchTerm) {
         .then((json) => json);
 }
 
-function getUserProfile() {
-    return {};
+function getUserProfile(userName) {
+    return (dispatch, getState) => {
+        const { user: { token } } = getState();
+        fetch(`/users/${userName}/`, {
+            headers: {
+                Authorization: `JWT ${token}`,
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => {
+                if (response.status === 401) {
+                    dispatch(logout());
+                } else if (response.status === 404) {
+                } else {
+                    return response.json();
+                }
+            })
+            .then((json) => {
+                dispatch(setUserProfile(json));
+            });
+    };
 }
 
 /// initial state

@@ -56,7 +56,7 @@ const Navigation = (props, context) => (
                     )}
                 </div>
                 <div className={styles.navIcon}>
-                    <Link to="/profile">
+                    <Link to={`/${props.username}`}>
                         <Ionicon
                             icon="ios-person-outline"
                             fontSize="32px"

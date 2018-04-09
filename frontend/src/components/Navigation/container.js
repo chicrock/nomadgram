@@ -9,6 +9,7 @@ class Container extends Component {
     };
     static propTypes = {
         goToSearch: PropTypes.func.isRequired,
+        username: PropTypes.string.isRequired,
     };
     render() {
         return (
@@ -19,6 +20,7 @@ class Container extends Component {
                 openAlarms={this._openAlarms}
                 closeAlarms={this._closeAlarms}
                 seeingAlarms={this.state.seeingAlarms}
+                {...this.props}
             />
         );
     }

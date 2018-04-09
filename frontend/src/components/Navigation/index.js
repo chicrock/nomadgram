@@ -14,5 +14,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
 };
 
+const mapStateToProps = (state, ownProps) => {
+    const { user } = state;
+
+    return {
+        username: user.username,
+    };
+};
+
 /// attach function to props
-export default connect(null, mapDispatchToProps)(Container);
+export default connect(mapStateToProps, mapDispatchToProps)(Container);
