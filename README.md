@@ -6,6 +6,7 @@
 
 *   add This options in workspace settings in visual studio code for autocomplete
 
+
 <pre>
 <code>"python.pythonPath": "/Users/chicrock/.local/share/virtualenvs/nomadgram-V4YGkj-9/bin/python",</code>
 </pre>
