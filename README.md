@@ -459,3 +459,14 @@ componentDidUpdate = (prevProps, prevState) => {
     }
 };
 ```
+
+### Get User profile on login
+
+* See [django rest auth](http://django-rest-auth.readthedocs.io/en/latest/configuration.html)
+
+```python
+# config/settings/base.py
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'nomadgram.users.serializers.UserProfileSerializer'
+}
+```

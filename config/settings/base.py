@@ -358,3 +358,7 @@ JWT_AUTH = {
 REST_AUTH_REGISTER_SERIALIZERS = {
     'REGISTER_SERIALIZER': 'nomadgram.users.serializers.SignUpSerializer'
 }
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'nomadgram.users.serializers.UserProfileSerializer'
+}
