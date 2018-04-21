@@ -47,6 +47,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.User
         fields = (
+            'pk',
             'username',
             'name',
             'bio',
