@@ -202,31 +202,31 @@ class Search(APIView):
 
         else:
 
-            images = modules.Image.object.exclude(creator__in=user)[:20]
+            images = models.Image.objects.exclude(creator=user)[:20]
 
-            serializer = serializers.CommentSerializer(
+            serializer = serializers.CountImageSerializer(
                 images, many=True)
 
-            return Response(status = status.HTTP_200_OK, data = serializer.data)
+            return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 
 class ModerateComments(APIView):
 
-    def delete(self, request, image_id, comment_id, format = None):
+    def delete(self, request, image_id, comment_id, format=None):
         """ delete comments
         """
 
-        user=request.user
+        user = request.user
 
         try:
-            comment=models.Comment.objects.get(
-                id = comment_id, image__id = image_id, image__creator = user)
+            comment = models.Comment.objects.get(
+                id=comment_id, image__id=image_id, image__creator=user)
 
             comment.delete()
         except ObjectDoesNotExist:
-            return Response(status = status.HTTP_404_NOT_FOUND)
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
-        return Response(status = status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class ImageDetail(APIView):
@@ -243,54 +243,54 @@ class ImageDetail(APIView):
         """
 
         try:
-            image=models.Image.objects.get(id = image_id, creator = user)
+            image = models.Image.objects.get(id=image_id, creator=user)
             return image
         except ObjectDoesNotExist:
             return None
 
-    def get(self, request, image_id, format = None):
+    def get(self, request, image_id, format=None):
         """ Get Single image
         """
 
-        user=request.user
+        user = request.user
 
         try:
-            image=models.Image.objects.get(id = image_id)
+            image = models.Image.objects.get(id=image_id)
         except ObjectDoesNotExist:
-            return Response(status = status.HTTP_404_NOT_FOUND)
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer=serializers.ImageSerializer(image, context = {'request': request})
+        serializer = serializers.ImageSerializer(image, context={'request': request})
 
-        return Response(data = serializer.data, status = status.HTTP_200_OK)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
 
-    def put(self, request, image_id, format = None):
+    def put(self, request, image_id, format=None):
 
-        user=request.user
+        user = request.user
 
-        image=self._find_image_owner(image_id, user)
+        image = self._find_image_owner(image_id, user)
 
         if image is None:
-            return Response(status = status.HTTP_400_BAD_REQUEST)
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
-        serializer=serializers.InputImageSerializer(
-            image, data = request.data, partial = True)
+        serializer = serializers.InputImageSerializer(
+            image, data=request.data, partial=True)
 
         if serializer.is_valid():
-            serializer.save(creator = user)
+            serializer.save(creator=user)
 
-            return Response(data = serializer.data, status = status.HTTP_204_NO_CONTENT)
+            return Response(data=serializer.data, status=status.HTTP_204_NO_CONTENT)
         else:
-            return Response(data = serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, image_id, format = None):
+    def delete(self, request, image_id, format=None):
 
-        user=request.user
+        user = request.user
 
-        image=self._find_image_owner(image_id, user)
+        image = self._find_image_owner(image_id, user)
 
         if image is None:
-            return Response(status = status.HTTP_400_BAD_REQUEST)
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
         image.delete()
 
-        return Response(status = status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT)
