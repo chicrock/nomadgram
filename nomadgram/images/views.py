@@ -185,6 +185,7 @@ class Search(APIView):
         """
 
         user = request.user
+        followings = user.following.all()
 
         hashtags = request.query_params.get('hashtags', None)
 
@@ -202,7 +203,7 @@ class Search(APIView):
 
         else:
 
-            images = models.Image.objects.exclude(creator=user)[:20]
+            images = models.Image.objects.exclude(creator=user).exclude(creator__in=followings)[:20]
 
             serializer = serializers.CountImageSerializer(
                 images, many=True)
