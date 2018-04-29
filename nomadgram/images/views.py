@@ -207,8 +207,6 @@ class Search(APIView):
             serializer = serializers.CommentSerializer(
                 images, many=True)
 
-            )
-
             return Response(status = status.HTTP_200_OK, data = serializer.data)
 
 
