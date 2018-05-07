@@ -197,7 +197,7 @@ class Search(APIView):
                 tags__name__in=hashtags).distinct()
 
             serializer = serializers.CountImageSerializer(
-                images, many=True)
+                    images, many=True, context={'request': request})
 
             return Response(status=status.HTTP_200_OK, data=serializer.data)
 
@@ -206,7 +206,7 @@ class Search(APIView):
             images = models.Image.objects.exclude(creator=user).exclude(creator__in=followings)[:20]
 
             serializer = serializers.CountImageSerializer(
-                images, many=True)
+                    images, many=True, context={'request':request})
 
             return Response(status=status.HTTP_200_OK, data=serializer.data)
 

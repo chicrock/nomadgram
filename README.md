@@ -170,6 +170,8 @@ do migration
 # After install add 'rest_framework' to THIRD_PARTY_APPS on /config/settings/base.py
 </code></pre>
 
+*   Add Context to All serializers for full urls. If not, only return relative urls.
+
 *   <code>[Django rest Framework ApiGuide](http://www.django-rest-framework.org/api-guide/serializers/)</code>
 
 *   <code>[Django rest Framework RequestData](http://www.django-rest-framework.org/api-guide/requests/#data)</code>
