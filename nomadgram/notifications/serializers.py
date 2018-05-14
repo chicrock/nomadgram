@@ -12,9 +12,4 @@ class NotificationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Notification
-        fields = (
-            'id',
-            'creator',
-            'notification_type',
-            'image',
-        )
+        fields = '__all__'
