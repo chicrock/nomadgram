@@ -79,6 +79,11 @@ django-admin startapp images</code>
 # After all add TAGGIT_CASE_INSENSITIVE = True on last line of config/settings/base.py
 </code></pre>
 
+```bash
+# Create superuser for admin page
+]$ python manage.py createsuperuser
+```
+
 *   Django default password module help to change password process<br>
     <code>[Django Check Password Docs](https://docs.djangoproject.com/en/1.11/ref/contrib/auth/#django.contrib.auth.models.User.check_password)</code>
 
